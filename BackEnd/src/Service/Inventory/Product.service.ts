@@ -1,24 +1,26 @@
 import { ProductModel } from '@Model/Inventory/Product.model';
 import { BadRequestException, Injectable } from '@nestjs/common';
 import { product } from '@Root/Database/Table/Inventory/product';
+import { result } from 'lodash';
 import { LessThan, Not, Raw } from 'typeorm';
 
 @Injectable()
 export class ProductService {
-  constructor() {}
+  constructor() { }
 
   // Get all products
   async GetAll() {
-    return await product.find({ where: { created_by_id: Not('0') } });
+    const ProductData = await product.find({ relations: ['product_category'] });
+    return ProductData;
   }
 
   // Get product by ID
   async GetById(productId: string) {
-        const ProductData =  await product.findOne({ where: { id: productId } });
-        if(!ProductData){
-          throw new Error('Product not found');
-        }
-        return ProductData;
+    const ProductData = await product.findOne({ where: { id: productId } });
+    if (!ProductData) {
+      throw new Error('Product not found');
+    }
+    return ProductData;
   }
 
   // Insert a new product
@@ -40,7 +42,7 @@ export class ProductService {
 
   // Update product
   async Update(id: string, productData: ProductModel, userId: string) {
-    const ExistingProduct = await product.findOne({ where: { id : id } });
+    const ExistingProduct = await product.findOne({ where: { id: id } });
     if (!ExistingProduct) {
       throw new Error('Product not found');
     }

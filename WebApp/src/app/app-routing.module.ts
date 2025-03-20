@@ -44,7 +44,42 @@ const routes: Routes = [
     loadChildren: () => import('./UserRole/User_Role/userrole.component').then(o => o.UserRoleModule),
     data: { MenuName: "User Role", Module: "Admin" }
   },
- 
+  {
+    canActivate: [AuthGuard],
+    path: "ProductList", component: LayoutComponent,
+    loadChildren: () => import('./Product/ProductList/productlist.component').then(o => o.ProductListModule),
+    data: { MenuName: "Product List", Module: "Admin" }
+  },
+  {
+    canActivate: [AuthGuard],
+    path: "Product/:id", component: LayoutComponent,
+    loadChildren: () => import('./Product/Product/product.component').then(o => o.ProductModule),
+    data: { MenuName: "Product", Module: "Admin" }
+  },
+  {
+    canActivate: [AuthGuard],
+    path: "ProductCategoryList", component: LayoutComponent,
+    loadChildren: () => import('./ProductCategory/product-category.component').then(o => o.ProductCategoryModule),
+    data: { MenuName: "Product CategoryList", Module: "Admin" }
+  },
+  {
+    canActivate: [AuthGuard],
+    path: "ProductCategory/:id", component: LayoutComponent,
+    loadChildren: () => import('./ProductCategory/product-category.component').then(o => o.ProductCategoryModule),
+    data: { MenuName: "Product Category", Module: "Admin" }
+  },
+  {
+    canActivate: [AuthGuard],
+    path: "Inward", component: LayoutComponent,
+    loadChildren: () => import('./Inward/inward.component').then(o => o.InwardModule),
+    data: { MenuName: "Inward", Module: "Admin" }
+  },
+  {
+    canActivate: [AuthGuard],
+    path: "Outward", component: LayoutComponent,
+    loadChildren: () => import('./Outward/outward.component').then(o => o.OutwardModule),
+    data: { MenuName: "Outward", Module: "Admin" }
+  },
  
 ];
 

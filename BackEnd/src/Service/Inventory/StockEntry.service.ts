@@ -7,10 +7,11 @@ import { Not } from 'typeorm';
 
 @Injectable()
 export class StockEntryService {
-  constructor() {}
+  constructor() { }
 
-  async GetAll() {
-    return await stock_entry.find({ where: { created_by_id: Not('0') } });
+  async GetAll(StockEntryType: StockEntryEnum) {
+    const StockEntryData = await stock_entry.find({ where: { stock_entry: StockEntryType }, relations: ["product"] });
+    return StockEntryData;
   }
 
   async GetById(stockEntryId: string) {
@@ -21,22 +22,22 @@ export class StockEntryService {
     const productExists = await product.findOne({ where: { id: stockEntryData.product_id } });
 
     if (!productExists) {
-        throw new Error('Product not found');
+      throw new Error('Product not found');
     }
 
     if (stockEntryData.type === StockEntryEnum.Inward) {
-        productExists.stock_quantity += stockEntryData.quantity;
+      productExists.stock_quantity += stockEntryData.quantity;
     }
     else if (stockEntryData.type === StockEntryEnum.Outward) {
-        if (productExists.stock_quantity < stockEntryData.quantity) {
-            throw new Error('Insufficient stock available');
-        }
-        productExists.stock_quantity -= stockEntryData.quantity;
+      if (productExists.stock_quantity < stockEntryData.quantity) {
+        throw new Error('Insufficient stock available');
+      }
+      productExists.stock_quantity -= stockEntryData.quantity;
     } else {
-        throw new Error('Invalid stock entry type');
+      throw new Error('Invalid stock entry type');
     }
 
-    await product.update(productExists.id,productExists);
+    await product.update(productExists.id, productExists);
 
     const NewStockEntry = new stock_entry();
     NewStockEntry.product_id = stockEntryData.product_id;
@@ -47,10 +48,10 @@ export class StockEntryService {
 
     await stock_entry.insert(NewStockEntry);
     return NewStockEntry;
-}
+  }
 
   async Update(id: string, stockEntryData: StockEntryModel, userId: string) {
-    const ExistingStockEntry = await stock_entry.findOne({ where: { id : id } });
+    const ExistingStockEntry = await stock_entry.findOne({ where: { id: id } });
 
     if (!ExistingStockEntry) {
       throw new Error('Stock entry not found');

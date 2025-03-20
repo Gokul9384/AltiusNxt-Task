@@ -1,0 +1,56 @@
+<p-card>
+    <div class="d-flex flex-row align-items-center justify-content-between mb-3">
+        <h1 class="mb-0">Product Category</h1>
+        <button pButton pripple icon="pi pi-plus-circle" label=" Add New User" (click)="CreateProductCategory(0)"></button>
+    </div>
+
+    <p-table [responsive]="true" #dt [globalFilterFields]="['user_role.name','first_name','last_name','email','mobile']" [value]="ProductCategoryList" [paginator]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rows]="10"
+        [showCurrentPageReport]="true" [rowsPerPageOptions]="[10,25,50]" [scrollable]="true">
+        <ng-template pTemplate="caption">
+            <div class="d-flex flex-row flex-wrap justify-content-between align-items-center">
+                <h5 class="p-text-secondary">List of Product Category</h5>
+                <span class="p-input-icon-left">
+                    <i class="pi pi-search"></i>
+                    <input pInputText type="text" placeholder="Search"
+                        (input)="dt.filterGlobal($event.target.value, 'contains')" />
+                </span>
+            </div>
+        </ng-template>
+        <ng-template pTemplate="header" let-columns>
+            <tr>
+                <th pSortableColumn="name" style="min-width:150px">
+                    Name
+                    <p-sortIcon field="name"></p-sortIcon>
+                </th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-rowData>
+            <tr>
+                <td>
+                    <span class="p-column-title">name : </span>{{rowData.name}}
+                </td>
+                <td class="text-end" pFrozenColumn>
+                    <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-primary" (click)="CreateUser(rowData.id)"></button>
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+</p-card>
+
+<p-dialog header="Edit Profile" [modal]="true" [(visible)]="ProductCategoryDialog" *ngIf="ProductCategoryDialog" [style]="{ width: '50rem' }">
+    <p-header>
+        {{ProductCategoryData?.id ? 'Edit ProductCategory - ': 'Add New ProductCategory' }} {{ProductCategoryData?.name}}
+    </p-header>
+    <div class="row" [formGroup]="ProductCategoryForm">
+        <div class="col-sm-6 form-group mb-3">
+            <label>Name<span style="color: red"> * </span></label>
+            <input type="text" class="form-control" formControlName="name" placeholder="Enter Name" [(ngModel)]="ProductCategoryData.name" />
+            <app-validation propertyName="name" [MessageArray]="ProductCategoryValidationMessage" [FormGroupName]="ProductCategoryForm"></app-validation>
+        </div>
+    </div>
+    <div class="flex justify-content-end gap-2">
+        <button pButton pRipple icon="pi pi-times-circle" label="Cancel" class="p-button-secondary me-3 mb-3" (click)="CloseDialouge()"></button>
+        <button pButton pRipple icon="pi pi-check-circle" label="Save" class="p-button-success me-3 mb-3" *ngIf="!ProductCategoryData.id" (click)="Save()"></button>
+        <button pButton pRipple icon="pi pi-check-circle" label="Update" class="p-button-success me-3 mb-3" *ngIf="ProductCategoryData.id" (click)="Save()"></button>
+    </div>
+</p-dialog>

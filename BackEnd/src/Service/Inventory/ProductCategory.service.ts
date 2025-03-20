@@ -1,4 +1,3 @@
-import { ProductModel } from '@Model/Inventory/Product.model';
 import { ProductCategoryModel } from '@Model/Inventory/ProductCategory.model';
 import { Injectable } from '@nestjs/common';
 import { product } from '@Root/Database/Table/Inventory/product';
@@ -7,15 +6,15 @@ import { Not } from 'typeorm';
 
 @Injectable()
 export class ProductCategoryService {
-  constructor() {}
+  constructor() { }
 
   async GetAll() {
-    return await product_category.find({ where: { created_by_id: Not('0') } });
+    return await product_category.find();
   }
 
   async GetById(productCategoryId: string) {
-    const ProductCategoryData =  await product_category.findOne({ where: { id: productCategoryId } });
-    if(!ProductCategoryData){
+    const ProductCategoryData = await product_category.findOne({ where: { id: productCategoryId } });
+    if (!ProductCategoryData) {
       throw new Error('Product Category not found');
     }
     return ProductCategoryData;
@@ -32,7 +31,7 @@ export class ProductCategoryService {
   }
 
   async Update(id: string, productCategoryData: ProductCategoryModel, userId: string) {
-    const ExistingProduct = await product_category.findOne({ where: { id:id } });
+    const ExistingProduct = await product_category.findOne({ where: { id: id } });
     if (!ExistingProduct) {
       throw new Error('Product Category not found');
     }

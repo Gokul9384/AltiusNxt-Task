@@ -9,7 +9,6 @@ export class AuthGuard  {
   ) { }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    debugger
     let user_data = this.helper.GetUserInfo();
     if (user_data?.user_id) {
       return true;

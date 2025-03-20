@@ -1,0 +1,70 @@
+<p-card>
+    <div class="d-flex flex-row align-items-center justify-content-between mb-3">
+        <h1 class="mb-0">Outward</h1>
+        <p-button (onClick)="CreateOutward(0)" label="Add New Outward" />
+    </div>
+
+    <p-table [responsive]="true" #dt [globalFilterFields]="['user_role.name','first_name','last_name','email','mobile']" [value]="OutwardList" [paginator]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rows]="10" [showCurrentPageReport]="true"
+        [rowsPerPageOptions]="[10,25,50]" [scrollable]="true">
+        <ng-template pTemplate="caption">
+            <div class="d-flex flex-row flex-wrap justify-content-between align-items-center">
+                <h5 class="p-text-secondary">List of Outward</h5>
+                <span class="p-input-icon-left">
+                    <i class="pi pi-search"></i>
+                    <input pInputText type="text" placeholder="Search"
+                        (input)="dt.filterGlobal($event.target.value, 'contains')" />
+                </span>
+            </div>
+        </ng-template>
+        <ng-template pTemplate="header" let-columns>
+            <tr>
+                <th pSortableColumn="product_id" style="min-width:200px">
+                    Product
+                    <p-sortIcon field="product_id"></p-sortIcon>
+                </th>
+                <th pSortableColumn="quantity" style="min-width:150px">
+                    Quantity
+                    <p-sortIcon field="quantity"></p-sortIcon>
+                </th>
+                <th class="text-end" pFrozenColumn>
+                    Action
+                </th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-rowData>
+            <tr>
+                <td>
+                    <span class="p-column-title">Product : </span>{{rowData.product.name}}
+                </td>
+                <td>
+                    <span class="p-column-title">Quantity : </span>{{rowData.quantity}}
+                </td>
+                <td class="text-end" pFrozenColumn>
+                    <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-primary" (click)="CreateOutward(rowData.id)"></button>
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+</p-card>
+<p-dialog header="Edit Profile" [modal]="true" [(visible)]="OutwardDialog" *ngIf="OutwardDialog" [style]="{ width: '50rem' }">
+    <p-header>
+        {{OutwardData?.id ? 'Edit Outward - ': 'Add New Outward' }} {{OutwardData?.name}}
+    </p-header>
+    <div class="row" [formGroup]="OutwardForm">
+        <div class="col-sm-6 form-group mb-3">
+            <label>Product <span style="color: red"> * </span></label>
+            <p-dropdown appendTo="body" formControlName="product_id" optionLabel="name" optionValue="id" [options]="ProductList" placeholder="Select State/Territory/Province" [filter]="true" [(ngModel)]="OutwardData.product_id"></p-dropdown>
+            <app-validation propertyName="product_id" [MessageArray]="OutwardValidationMessage" [FormGroupName]="OutwardForm"></app-validation>
+        </div>
+        <div class="col-sm-6 form-group mb-3">
+            <label>Quantity<span style="color: red"> * </span></label>
+            <input type="text" class="form-control" formControlName="quantity" placeholder="Enter Name" [(ngModel)]="OutwardData.quantity" />
+            <app-validation propertyName="quantity" [MessageArray]="OutwardValidationMessage" [FormGroupName]="OutwardForm"></app-validation>
+        </div>
+    </div>
+    <div class="flex justify-content-end gap-2">
+        <button pButton pRipple icon="pi pi-times-circle" label="Cancel" class="p-button-secondary me-3 mb-3" (click)="CloseDialouge()"></button>
+        <button pButton pRipple icon="pi pi-check-circle" label="Save" class="p-button-success me-3 mb-3" *ngIf="!OutwardData.id" (click)="Save()"></button>
+        <button pButton pRipple icon="pi pi-check-circle" label="Update" class="p-button-success me-3 mb-3" *ngIf="OutwardData.id" (click)="Save()"></button>
+    </div>
+</p-dialog>

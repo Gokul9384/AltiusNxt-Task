@@ -52,7 +52,6 @@ export class LoginComponent implements OnInit {
   };
 
   async LoginCommonCall(data: any) {
-    debugger
     this.helper.ShowSpinner();
     let res = await this.service.CommonPost(data, "v1/Auth/Login");
     if (res.Type == "S") {

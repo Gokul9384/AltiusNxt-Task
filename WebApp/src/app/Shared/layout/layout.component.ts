@@ -79,7 +79,16 @@ export class LayoutComponent implements OnInit, AfterViewInit, AfterViewChecked 
     this.LeftMenu = [
       { Module: "Admin", Icon: "dashboard", Name: "Dashboard", Link: "/AdminDashboard", Child: false, Visible: true },
       { Module: "Admin", Icon: "supervised_user_circle", Name: "User Role", Link: "/UserRoleList", Child: false, Visible: true },
-      { Module: "Admin", Icon: "account_circle", Name: "User", Link: "/UserList", Child: false, Visible: true }
+      { Module: "Admin", Icon: "account_circle", Name: "User", Link: "/UserList", Child: false, Visible: true },
+            {
+        Module: "Admin", Icon: "inventory", Name: "Inventory Setup", Child: true, Visible: true,
+        ChildList: [
+          { Name: "Product Category List", Icon: "category", Link: "/ProductCategoryList", Child: false, Visible: true },
+          { Name: "Product List", Icon: "production_quantity_limits", Link: "/ProductList", Child: false, Visible: true },
+          { Name: "Inward List", Icon: "arrow_circle_down", Link: "/Inward", Child: false, Visible: true },
+          { Name: "Outward List", Icon: "arrow_circle_up", Link: "/Outward", Child: false, Visible: true }
+        ]
+      }
     ]
     this.router.data.subscribe((or) => {
       if (this.router.routeConfig.path != "Profile") {

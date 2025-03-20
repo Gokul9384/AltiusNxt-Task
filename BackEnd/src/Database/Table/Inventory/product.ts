@@ -8,7 +8,7 @@ export class product extends BaseTable {
   name: string;
 
   @ManyToOne(() => product_category, { onDelete: 'RESTRICT' })
-  @JoinColumn({ name: 'user_role_id' })
+  @JoinColumn({ name: 'product_category_id' })
   product_category: product_category;
 
   @Column()

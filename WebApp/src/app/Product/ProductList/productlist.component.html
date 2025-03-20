@@ -1,0 +1,62 @@
+<p-card>
+    <div class="d-flex flex-row align-items-center justify-content-between mb-3">
+        <h1 class="mb-0">Product</h1>
+        <button pButton pripple icon="pi pi-plus-circle" label=" Add New User" (click)="CreateUser('0')"></button>
+    </div>
+
+    <p-table [responsive]="true" #dt [globalFilterFields]="['user_role.name','first_name','last_name','email','mobile']" [value]="ProductList" [paginator]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rows]="10" [showCurrentPageReport]="true"
+        [rowsPerPageOptions]="[10,25,50]" [scrollable]="true">
+        <ng-template pTemplate="caption">
+            <div class="d-flex flex-row flex-wrap justify-content-between align-items-center">
+                <h5 class="p-text-secondary">List of Product</h5>
+                <span class="p-input-icon-left">
+                    <i class="pi pi-search"></i>
+                    <input pInputText type="text" placeholder="Search"
+                        (input)="dt.filterGlobal($event.target.value, 'contains')" />
+                </span>
+            </div>
+        </ng-template>
+        <ng-template pTemplate="header" let-columns>
+            <tr>
+                <th pSortableColumn="name" style="min-width:150px">
+                    Name
+                    <p-sortIcon field="name"></p-sortIcon>
+                </th>
+                <th pSortableColumn="user_role.name" style="min-width:120px">
+                    Product Category
+                    <p-sortIcon field="user_role.name"></p-sortIcon>
+                </th>
+                <th pSortableColumn="stock_quantity" style="min-width:150px">
+                    Stock Quantity
+                    <p-sortIcon field="stock_quantity"></p-sortIcon>
+                </th>
+                <th pSortableColumn="min_qty" style="min-width:200px">
+                    Minimum Quantity
+                    <p-sortIcon field="min_qty"></p-sortIcon>
+                </th>
+                <th class="text-end" pFrozenColumn>
+                    Action
+                </th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-rowData>
+            <tr>
+                <td>
+                    <span class="p-column-title">name : </span>{{rowData.name}}
+                </td>
+                <td>
+                    <span class="p-column-title"> Product Category : </span>{{rowData.product_category.name}}
+                </td>
+                <td>
+                    <span class="p-column-title"> Stock Quantity :</span>{{rowData.stock_quantity}}
+                </td>
+                <td>
+                    <span class="p-column-title">Minimum Quantity : </span>{{rowData.min_qty}}
+                </td>
+                <td class="text-end" pFrozenColumn>
+                    <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-primary" (click)="CreateUser(rowData.id)"></button>
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+</p-card>

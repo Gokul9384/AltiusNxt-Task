@@ -5,6 +5,7 @@ import { ResponseEnum } from '@Helper/Enum/ResponseEnum';
 import { JWTAuthController } from '@Controller/JWTAuth.controller';
 import { StockEntryService } from '@Root/Service/Inventory/StockEntry.service';
 import { StockEntryModel } from '@Model/Inventory/StockEntry.model';
+import { StockEntryEnum } from '@Root/Helper/Enum/StockEntryEnum';
 
 @Controller({ path: "StockEntry", version: '1' })
 @ApiTags("Stock Entry")
@@ -13,9 +14,9 @@ export class StockEntryController extends JWTAuthController {
     super();
   }
 
-  @Get('List')
-  async List() {
-    const StockEntryListData = await this._StockEntryService.GetAll();
+  @Get('List/:Id')
+  async List(@Param('Id') StockEntryType: StockEntryEnum) {
+    const StockEntryListData = await this._StockEntryService.GetAll(StockEntryType);
     return this.SendResponseData(StockEntryListData);
   }
 
