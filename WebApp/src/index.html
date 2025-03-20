@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Product Inventory</title>
+    <base href="/">
+    <!-- <base href="/lvowdemo/Admin/"> -->
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=0"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="src/assets/image/logo-sm.png">
+    <link rel="shortcut icon" type="image/png" href="assets/image/ImageFav.png">
+
+
+    <!-- Material Icons -->
+    <link rel="stylesheet" href="assets/fonts/materialiconfont/material-icons.css">
+    <!-- Flag Icons -->
+    <link rel="stylesheet" href="assets/css/flag.css">
+</head>
+
+<body>
+    <app-root></app-root>
+    <!-- <script src="assets/script.js"></script> -->
+    <!-- <script src="assets/popper.min.js"></script> -->
+    <!-- <script src="assets/bootstrap.min.js"></script> -->
+</body>
+
+<script type="text/javascript">
+    function resizeIframe(obj) {
+        obj.style.height = 0;
+        obj.style.height = obj.contentWindow.document.body.scrollHeight + 50 + 'px';
+        let first_table = obj.contentWindow.document.getElementsByTagName("table");
+        if (first_table) {
+            for (var tables of first_table) {
+                tables.style.margin = "auto";
+            }
+        }
+    }
+</script>
+
+</html>

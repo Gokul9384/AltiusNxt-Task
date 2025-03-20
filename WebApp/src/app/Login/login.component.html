@@ -1,0 +1,33 @@
+<!-- <body style="background-image: url('../../assets/images/Portal Homescreen Graphic.png');background-repeat: no-repeat;background-size: cover;"> -->
+<div class="d-flex justify-content-center align-items-center vh-100">
+    <p-card>
+        <form class="login-container" autocomplete="off" [formGroup]="UserForm">
+            <div class="text-center">
+                <img src="../../assets/images/logo.png" width="50%" height="100" style="background-color: white;">
+            </div>
+            <!-- Email -->
+            <div class="mb-3">
+                <label class="mb-2">Email</label>
+                <div class="p-input-icon-left w-100">
+                    <i class="pi pi-envelope"></i>
+                    <input pInputText type="text" class="w-100" formControlName="email" [(ngModel)]="User.email" placeholder="Enter Email">
+                </div>
+                <app-validation propertyName="email" [MessageArray]="LoginValidationMessages" [FormGroupName]="UserForm"></app-validation>
+            </div>
+            <!-- // Email -->
+            <!-- Password -->
+            <div class="mb-3">
+                <label class="mb-2">Password</label>
+                <div class="p-input-icon-left w-100">
+                    <i class="pi pi-key"></i>
+                    <input type="password" pInputText class="w-100" formControlName="password" [(ngModel)]="User.password" placeholder="Enter Password">
+                </div>
+                <app-validation propertyName="password" [MessageArray]="LoginValidationMessages" [FormGroupName]="UserForm"></app-validation>
+            </div>
+            <!--  -->
+
+            <button pButton class="w-100 text-center justify-content-center" (click)="Login()">L O G I N</button>
+        </form>
+    </p-card>
+</div>
+<!-- </body> -->

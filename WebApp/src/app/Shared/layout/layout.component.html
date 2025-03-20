@@ -1,0 +1,109 @@
+<div class="layout">
+    <!-- Aside Navigation's -->
+    <div class="aside-container">
+        <aside class="aside-nav">
+            <!-- Logo  -->
+            <div class="aside-nav-header d-flex justify-content-between align-items-center px-2 py-3">
+                <img alt="logo" src="../../../assets/images/logo.png" height="100" width="150px" style="background-color: white;" class="aside-logo">
+                <button class="aside-menu-btn" (click)="toggleMenu()">
+                    <i class="material-icons-outlined align-middle fs-4">last_page</i>
+                </button>
+            </div>
+            <!-- // Logo  -->
+            <!-- Nav -->
+            <nav>
+                <ul class="list-unstyled mt-4">
+                    <!-- List -->
+                    <li class="nav-list-item" *ngFor="let menu of LeftMenu">
+                        <a class="navigation-link" *ngIf="!menu.Child" [routerLink]="menu.Link" routerLinkActive="active">
+                            <span class="icon material-icons-outlined">{{menu.Icon}}</span>
+                            <span class="text">{{menu.Name}}</span>
+                        </a>
+                        <a class="navigation-link nav-link-dropdown-btn" *ngIf="menu.Child">
+                            <span class="icon material-icons-outlined">{{menu.Icon}}</span>
+                            <span class="text">{{menu.Name}}</span>
+                            <span class="arrow  material-icons-outlined">chevron_right</span>
+                        </a>
+                        <ul class="list-unstyled sub-menu-list" *ngIf="menu.Child">
+                            <li class="nav-list-item" *ngFor="let subMenu of menu.ChildList">
+                                <a class="navigation-link" [routerLink]="subMenu.Link" routerLinkActive="active">
+                                    <span class="icon material-icons-outlined">{{subMenu.Icon}}</span>
+                                    <span class="text">{{subMenu.Name}}</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- // List -->
+                </ul>
+            </nav>
+            <!-- // Nav -->
+            <div class="aside-nav-footer">
+                <ul class="list-unstyled mb-2">
+                    <li class="nav-list-item p-0">
+                        <a class="navigation-link nav-link-dropdown-btn profile-dropdown-btn rounded-0">
+                            <p-avatar icon="pi pi-user" styleClass="mr-2" size="large" [style]="{'background-color':'#2196F3', 'color': '#ffffff'}" shape="circle"></p-avatar>
+                            <div class="flex-grow-1 ms-1 text-truncate">
+                                <div class="small fw-bold text">{{this.helper.GetUserInfo()?.email}}</div>
+                                <div class="small lh-1 text" style="text-align: center;"><small></small></div>
+                            </div>
+                        </a>
+                        <ul class="list-unstyled sub-menu-list ms-0">
+                            <!-- <li class="nav-list-item">
+                                <a class="navigation-link">
+                                    <span class="icon material-icons-outlined">account_circle</span>
+                                    <span class="text">Profile</span>
+                                </a>
+                            </li> -->
+                            <li class="nav-list-item">
+                                <a class="navigation-link">
+                                    <span class="icon material-icons-outlined"><span
+                                            class="material-icons-outlined">vpn_key</span></span>
+                                    <span class="text" (click)="ChangePassword()">ChangePassword</span>
+                                </a>
+                            </li>
+                            <li class="nav-list-item">
+                                <a class="navigation-link">
+                                    <span class="icon material-icons-outlined"><span
+                                            class="material-icons-outlined">logout</span></span>
+                                    <span class="text" (click)="Logout()">Logout</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+        <div class="aside-nav-overlay" (click)="toggleMenu()"></div>
+        <button class="side-nav-collapse-btn" (click)="collapseSidenav()"><i
+                class="material-icons-outlined align-middle">chevron_left</i></button>
+    </div>
+
+    <div class="wrapper">
+        <header class="layout-header d-flex justify-content-between align-items-center">
+            <div class="align-self-center">
+                <button class="menu-toggle-btn d-md-none" (click)="toggleMenu()">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px"
+                        fill="#000000">
+                        <path d="M0 0h24v24H0V0z" fill="none" opacity=".87"/>
+                        <path d="M5.59 7.41L10.18 12l-4.59 4.59L7 18l6-6-6-6-1.41 1.41zM16 6h2v12h-2V6z"/>
+                    </svg>
+                </button>
+            </div>
+            <!-- <div>
+                <h2>Luxury Vills Of The World</h2>
+            </div> -->
+            <!-- <div>
+                <button class="border-0 bg-transparent text-body" (click)="changeTheme()"><i class="pi pi-moon fs-5"></i></button>
+            </div> -->
+        </header>
+        <div class="content">
+
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+
+
+
+
+
+</div>

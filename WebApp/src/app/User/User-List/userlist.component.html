@@ -1,0 +1,81 @@
+<p-card>
+    <div class="d-flex flex-row align-items-center justify-content-between mb-3">
+        <h4 class="mb-0">User</h4>
+        <button pButton pripple icon="pi pi-plus-circle" label=" Add New User" (click)="CreateUser('0')"></button>
+    </div>
+
+    <p-table [responsive]="true" #dt [globalFilterFields]="['user_role.name','first_name','last_name','email','mobile']" [value]="userlist" [paginator]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rows]="10" [showCurrentPageReport]="true"
+        [rowsPerPageOptions]="[10,25,50]" [scrollable]="true">
+        <ng-template pTemplate="caption">
+            <div class="d-flex flex-row flex-wrap justify-content-between align-items-center">
+                <h5 class="p-text-secondary">List of user</h5>
+                <span class="p-input-icon-left">
+                    <i class="pi pi-search"></i>
+                    <input pInputText type="text" placeholder="Search"
+                        (input)="dt.filterGlobal($event.target.value, 'contains')" />
+                </span>
+            </div>
+        </ng-template>
+        <ng-template pTemplate="header" let-columns>
+            <tr>
+                <th pSortableColumn="user_role.name" style="min-width:120px">
+                    Role
+                    <p-sortIcon field="user_role.name"></p-sortIcon>
+                    <!-- <p-columnFilter type="text" field="user_role.name" display="menu" /> -->
+                </th>
+                <th pSortableColumn="first_name" style="min-width:150px">
+                    First name
+                    <p-sortIcon field="first_name"></p-sortIcon>
+                    <!-- <p-columnFilter type="text" field="first_name" display="menu" /> -->
+                </th>
+                <th pSortableColumn="last_name" style="min-width:150px">
+                    Last name
+                    <p-sortIcon field="last_name"></p-sortIcon>
+                    <!-- <p-columnFilter type="text" field="last_name" display="menu" /> -->
+                </th>
+                <th pSortableColumn="email" style="min-width:200px">
+                    Email
+                    <p-sortIcon field="email"></p-sortIcon>
+                    <!-- <p-columnFilter type="text" field="email" display="menu" /> -->
+                </th>
+                <th pSortableColumn="mobile" style="min-width:130px">
+                    Mobile
+                    <p-sortIcon field="mobile"></p-sortIcon>
+                    <!-- <p-columnFilter type="text" field="mobile" display="menu" /> -->
+                </th>
+                <th pFrozenColumn>
+                    Status
+                </th>
+                <th class="text-end" pFrozenColumn>
+                    Action
+                </th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-rowData>
+            <tr>
+                <td>
+                    <span class="p-column-title">Role : </span>{{rowData.user_role.name}}
+                </td>
+                <td>
+                    <span class="p-column-title"> First name : </span>{{rowData.first_name}}
+                </td>
+                <td>
+                    <span class="p-column-title">Last name : </span>{{rowData.last_name}}
+                </td>
+                <td>
+                    <span class="p-column-title">Email : </span>{{rowData.email}}
+                </td>
+                <td>
+                    <span class="p-column-title">Mobile : </span>{{rowData.mobile}}
+                </td>
+                <td pFrozenColumn>
+                    <p-tag *ngIf="rowData.status" value="New" icon="pi pi-check" severity="success" value="Active"></p-tag>
+                    <p-tag *ngIf="!rowData.status" value="New" icon="pi pi-times" severity="danger" value="Suspend"></p-tag>
+                </td>
+                <td class="text-end" pFrozenColumn>
+                    <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-primary" (click)="CreateUser(rowData.id)"></button>
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+</p-card>

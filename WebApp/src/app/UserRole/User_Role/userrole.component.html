@@ -1,0 +1,31 @@
+<div class="card">
+    <div class="card-body">
+        <div>
+            <h1 *ngIf="UserRoleId == 0">
+                Add New User Role
+            </h1>
+            <h1 *ngIf="UserRoleId != 0">
+                Edit {{UserRoleData.name}}
+            </h1>
+        </div>
+        <div class="mb-3" style="text-align: right;">
+            <button routerLink="/UserRoleList" pButton pRipple icon="pi pi-times-circle" label="Cancel" class="p-button-secondary me-3 mb-3"></button>
+            <button pButton pRipple icon="pi pi-check-circle" label="Save" class="p-button-success me-3 mb-3" *ngIf="this.UserRoleId == 0" (click)="Save()"></button>
+            <button pButton pRipple icon="pi pi-check-circle" label="Update" class="p-button-success me-3 mb-3" *ngIf="this.UserRoleId != 0" (click)="Save()"></button>
+
+        </div>
+        <hr>
+        <div class="row" [formGroup]="UserRoleForm">
+            <div class="col-lg-6 form-group">
+                <label>Name<span style="color: red;"> * </span></label>
+                <input type="text" formControlName="name" class="form-control" placeholder="Enter Name" [(ngModel)]="UserRoleData.name">
+                <app-validation propertyName="name" [MessageArray]="UserRoleValidationMessages" [FormGroupName]="UserRoleForm"></app-validation>
+            </div>
+            <div class="col-lg-6 form-group">
+                <label>Code<span style="color: red;"> * </span></label>
+                <input type="text" formControlName="code" class="form-control" placeholder="Enter Code" [(ngModel)]="UserRoleData.code">
+                <app-validation propertyName="code" [MessageArray]="UserRoleValidationMessages" [FormGroupName]="UserRoleForm"></app-validation>
+            </div>
+        </div>
+    </div>
+</div>

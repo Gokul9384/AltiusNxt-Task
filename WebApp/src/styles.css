@@ -1,0 +1,78 @@
+.preview_button {
+    width: 25px;
+    height: 25px;
+    border-radius: 60%;
+    border: none;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 0px 0px 4px rgba(180, 160, 255, 0.253);
+    cursor: pointer;
+    transition-duration: 0.3s;
+    overflow: hidden;
+    position: relative;
+}
+
+.svgIcon {
+    width: 12px;
+    transition-duration: 0.3s;
+    padding-right: 25px;
+}
+
+.svgIcon path {
+    fill: white;
+}
+
+.preview_button:hover {
+    width: 140px;
+    border-radius: 50px;
+    transition-duration: 0.3s;
+    background-color: rgb(181, 160, 255);
+    /* align-items: center; */
+}
+
+.preview_button:hover .svgIcon {
+    /* / width: 20px; / */
+    transition-duration: 0.3s;
+    transform: translateY(-200%);
+}
+
+.preview_button::before {
+    position: absolute;
+    bottom: -20px;
+    content: "Preview";
+    color: black;
+    /* / transition-duration: .3s; / */
+    font-size: 0px;
+}
+
+.preview_button:hover::before {
+    font-size: 13px;
+    opacity: 1;
+    bottom: unset;
+    /* / transform: translateY(-30px); / */
+    transition-duration: 0.3s;
+}
+
+.lockform {
+    pointer-events: none;
+}
+
+.lockform input,
+.lockform textarea {
+    background-color: #c8c8c8 !important;
+    color: black !important;
+}
+
+.lockform button,
+.lockform a {
+    background: #c8c8c8 !important;
+    color: black !important;
+}
+
+body .lockform .ui-dropdown label.ui-dropdown-label,
+.lockform .ui-dropdown .ui-dropdown-trigger {
+    background: #c8c8c8 !important;
+    color: black !important;
+}
