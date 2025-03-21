@@ -31,21 +31,15 @@ export class ProductController extends JWTAuthController {
     return this.SendResponse(ResponseEnum.Success, ResponseEnum.Created);
   }
 
-  @Put('Update/:Id')
-  async Update(@Param('Id') Id: string, @Body() ProductData: ProductModel, @CurrentUser() UserId: string) {
-    await this._ProductService.Update(Id, ProductData, UserId);
-    return this.SendResponse(ResponseEnum.Success, ResponseEnum.Updated);
-  }
+  // @Put('Update/:Id')
+  // async Update(@Param('Id') Id: string, @Body() ProductData: ProductModel, @CurrentUser() UserId: string) {
+  //   await this._ProductService.Update(Id, ProductData, UserId);
+  //   return this.SendResponse(ResponseEnum.Success, ResponseEnum.Updated);
+  // }
 
   @Delete('Delete/:Id')
   async Delete(@Param('Id') Id: string) {
     await this._ProductService.Delete(Id);
     return this.SendResponse(ResponseEnum.Success, ResponseEnum.Deleted);
-  }
-
-  @Get('GetLowStockProducts')
-  async GetLowStockProducts() {
-    const GetLowStockProductsData = await this._ProductService.GetLowStockProducts();
-    return this.SendResponseData(GetLowStockProductsData);
   }
 }

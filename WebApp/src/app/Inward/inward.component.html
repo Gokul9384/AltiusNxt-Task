@@ -1,7 +1,7 @@
 <p-card>
     <div class="d-flex flex-row align-items-center justify-content-between mb-3">
         <h1 class="mb-0">Inward</h1>
-        <p-button (onClick)="CreateInward(null)" label="Add New Inward" />
+        <p-button (onClick)="CreateInward(0)" label="Add New Inward" />
     </div>
 
     <p-table [responsive]="true" #dt [globalFilterFields]="['product.name','quantity']" [value]="InwardList" [paginator]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rows]="10" [showCurrentPageReport]="true" [rowsPerPageOptions]="[10,25,50]"

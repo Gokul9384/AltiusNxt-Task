@@ -1,4 +1,4 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Post } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 import { DashboardService } from '@Root/Service/Inventory/Dashboard.service';
 
@@ -8,8 +8,15 @@ import { DashboardService } from '@Root/Service/Inventory/Dashboard.service';
 export class DashboardController {
   constructor(private readonly dashboardService: DashboardService) { }
 
-  @Get()
-  async getDashboardData() {
-    return this.dashboardService.getDashboardData();
+
+  @Get('category-wise-stock')
+  async getCategoryWiseStock() {
+    return await this.dashboardService.getCategoryWiseStock();
   }
+
+  @Get('low-stock-products')
+  async getLowStockProducts() {
+    return await this.dashboardService.getLowStockProducts();
+  }
+
 }

@@ -3,7 +3,7 @@ import { Redis } from 'ioredis';
 
 @Injectable()
 export class CacheService {
-  private ProjectName = "TEMPLEDONATION:"
+  private ProjectName = "ProductInventory:"
   constructor(
     @Inject("REDIS_CLIENT") private readonly redisClient: Redis
   ) { }

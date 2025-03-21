@@ -20,7 +20,7 @@ import { CardModule } from 'primeng/card';
 
 export class InwardComponent implements OnInit {
   InwardForm: FormGroup;
-  InwardData: any = [];
+  InwardData: any = {};
   InwardList: any = [];
   InwardDialog: boolean = false;
   visible: boolean = false;
@@ -71,11 +71,12 @@ export class InwardComponent implements OnInit {
 
   async CreateInward(id: number) {
     debugger
+    this.availableQuantity = 0;
     this.InwardForm = this.formbuilder.group({
         quantity: new FormControl('', Validators.compose([Validators.required])),
       product_id: new FormControl('', Validators.compose([Validators.required]))
     });
-    if (id) {
+    if (id != 0) {
       this.helper.ShowSpinner();
       let res = await this.service.GetById(id, "v1/StockEntry/ById"); 
       this.InwardData = res;

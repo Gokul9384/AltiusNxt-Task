@@ -3,8 +3,6 @@ import { Injectable } from '@nestjs/common';
 import { product } from '@Root/Database/Table/Inventory/product';
 import { product_category } from '@Root/Database/Table/Inventory/product_category';
 import { CacheEnum } from '@Root/Helper/Enum/CacheEnum';
-import _ from 'lodash';
-import { Not } from 'typeorm';
 import { CacheService } from '../Cache.service';
 
 @Injectable()

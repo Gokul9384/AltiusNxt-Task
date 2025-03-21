@@ -1,53 +1,60 @@
 import { Injectable } from '@nestjs/common';
-import { InjectRepository } from '@nestjs/typeorm';
 import { product } from '@Root/Database/Table/Inventory/product';
 import { product_category } from '@Root/Database/Table/Inventory/product_category';
-import { Repository } from 'typeorm';
 import { CacheService } from '../Cache.service';
+import { CacheEnum } from '@Root/Helper/Enum/CacheEnum';
+import { Raw } from 'typeorm';
 
 @Injectable()
 export class DashboardService {
-  constructor(
-    private readonly cacheService: CacheService,
-  ) { }
+  constructor(private readonly cacheService: CacheService) { }
 
-  async getDashboardData() {
-    const categories = await product_category.find();
+  async getCategoryWiseStock() {
+    const cacheKey = `${CacheEnum.ProductCategoryStock}`;
+    const cachedData = await this.cacheService.Get(cacheKey);
+    if (cachedData.length > 0) {
+      return cachedData;
+    }
+
     const products = await product.find();
+    const categories = await product_category.find();
 
-    const categoryWiseStock = categories.map((category) => {
-      const categoryProducts = products.filter(
-        (product) => product.product_category_id === category.id,
+    const CategoryWiseStock = categories.map((o) => {
+
+      const CategoryProducts = products.filter(
+        (p) => p.product_category_id === o.id
       );
 
-      // Calculate total stock and ensure it's a number
-      const totalStock = categoryProducts.reduce(
-        (sum, product) => sum + Number(product.stock_quantity), // Convert to number
-        0, // Initial value is a number
-      );
-
-      const lowStockProducts = categoryProducts.filter(
-        (product) => Number(product.stock_quantity) < Number(product.min_qty),
+      const TotalStock = CategoryProducts.reduce(
+        (sum, product) => sum + Number(product.stock_quantity),
+        0
       );
 
       return {
-        categoryId: category.id,
-        categoryName: category.name,
-        totalStock: totalStock, // Ensure this is a number
-        lowStockProducts: lowStockProducts.map((product) => ({
-          id: product.id,
-          name: product.name,
-          stockQuantity: Number(product.stock_quantity), // Convert to number
-          minQty: Number(product.min_qty), // Convert to number
-        })),
+        categoryId: o.id,
+        categoryName: o.name,
+        TotalStock,
       };
     });
 
-    return categoryWiseStock;
+    await this.cacheService.Store(cacheKey, CategoryWiseStock);
+
+    return CategoryWiseStock;
   }
 
-  // Invalidate cache when products or stock entries are updated
-  async invalidateCache() {
-    await this.cacheService.Remove('dashboardData', { Type: 'D' }); // Use 'D' to indicate deletion
+
+
+
+  async getLowStockProducts() {
+    const LowStockProducts = await product.find({
+      where: { stock_quantity: Raw(alias => `${alias} < min_qty`) }
+
+    })
+    return LowStockProducts;
+  }
+
+  async updateStockCache() {
+    await this.cacheService.Remove(`${CacheEnum.ProductCategoryStock}`, []);
+    await this.getCategoryWiseStock();
   }
 }

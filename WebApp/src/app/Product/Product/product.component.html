@@ -32,7 +32,7 @@
 
 
             <div class="col-lg-6 form-group">
-                <label>Stock Quantity<span style="color: red;"> * </span></label>
+                <label>Stock Quantity</label>
                 <input type="text" formControlName="stock_quantity" class="form-control" placeholder="Enter Stock Quantity" [(ngModel)]="ProductData.stock_quantity">
                 <app-validation propertyName="stock_quantity" [MessageArray]="ProductValidationMessages" [FormGroupName]="ProductForm"></app-validation>
             </div>

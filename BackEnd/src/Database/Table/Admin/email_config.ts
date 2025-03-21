@@ -10,7 +10,7 @@ export class email_config extends BaseTable {
   @Column({ type: "mediumtext" })
   password: string;
 
-  @Column({ nullable: true, default: "TempleDonation" })
+  @Column({ nullable: true, default: "ProductInventory" })
   mailer_name: string;
 
   @Column({ nullable: true, default: "smtp.gmail.com" })

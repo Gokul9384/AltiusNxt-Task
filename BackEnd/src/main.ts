@@ -25,12 +25,12 @@ async function bootstrap() {
   app.useGlobalPipes(new ValidationPipe({ transform: true }));
   app.useGlobalFilters(new ExceptionHelper());
   const config = new DocumentBuilder()
-    .setTitle('TEMPLE DONATION')
+    .setTitle('Product Inventory')
     .addBearerAuth()
-    .setDescription('TEMPLEDONATION API Description')
+    .setDescription('Product Inventory API Description')
     .setVersion('1.0')
     .setExternalDoc('Postman Collection', '/swagger-json')
-    .setContact("TEMPLEDONATION", "https://Demo", "Demo@Demo")
+    .setContact("Product Inventory", "https://Demo", "Demo@Demo")
     .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('swagger', app, document, { swaggerOptions: { tagsSorter: 'alpha', enableSearch: true } });

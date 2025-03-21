@@ -1,7 +1,7 @@
 <p-card>
     <div class="d-flex flex-row align-items-center justify-content-between mb-3">
         <h1 class="mb-0">Outward</h1>
-        <p-button (onClick)="CreateOutward(null)" label="Add New Outward" />
+        <p-button (onClick)="CreateOutward(0)" label="Add New Outward" />
     </div>
 
     <p-table [responsive]="true" #dt [globalFilterFields]="['product.name','quantity']" [value]="OutwardList" [paginator]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rows]="10" [showCurrentPageReport]="true" [rowsPerPageOptions]="[10,25,50]"
@@ -54,8 +54,8 @@
     <div class="row" [formGroup]="OutwardForm">
         <div class="col-sm-5 form-group mb-3">
             <label>Product <span style="color: red"> * </span></label>
-            <p-dropdown appendTo="body" formControlName="product_id" optionLabel="name" optionValue="id" [options]="ProductList" placeholder="Select Product" [filter]="true" [(ngModel)]="InwardData.product_id" (onChange)="onProductChange($event.value)"></p-dropdown>
-            <app-validation propertyName="product_id" [MessageArray]="InwardValidationMessage" [FormGroupName]="InwardForm"></app-validation>
+            <p-dropdown appendTo="body" formControlName="product_id" optionLabel="name" optionValue="id" [options]="ProductList" placeholder="Select Product" [filter]="true" [(ngModel)]="OutwardData.product_id" (onChange)="onProductChange($event.value)"></p-dropdown>
+            <app-validation propertyName="product_id" [MessageArray]="OutwardValidationMessage" [FormGroupName]="OutwardForm"></app-validation>
         </div>
 
         <div class="col-sm-3 form-group mb-3">
@@ -65,8 +65,8 @@
 
         <div class="col-sm-4 form-group mb-3">
             <label>Quantity<span style="color: red"> * </span></label>
-            <input type="text" class="form-control" formControlName="quantity" placeholder="Enter Quantity" [(ngModel)]="InwardData.quantity" />
-            <app-validation propertyName="quantity" [MessageArray]="InwardValidationMessage" [FormGroupName]="InwardForm"></app-validation>
+            <input type="text" class="form-control" formControlName="quantity" placeholder="Enter Quantity" [(ngModel)]="OutwardData.quantity" />
+            <app-validation propertyName="quantity" [MessageArray]="OutwardValidationMessage" [FormGroupName]="OutwardForm"></app-validation>
         </div>
     </div>
     <div class="flex justify-content-end gap-2">

@@ -3,13 +3,12 @@ import { Injectable } from '@nestjs/common';
 import { product } from '@Root/Database/Table/Inventory/product';
 import { stock_entry } from '@Root/Database/Table/Inventory/stock_entry';
 import { StockEntryEnum } from '@Root/Helper/Enum/StockEntryEnum';
-import { Not } from 'typeorm';
 import { DashboardService } from './Dashboard.service';
 
 @Injectable()
 export class StockEntryService {
   constructor(
-    private readonly dashboardService: DashboardService
+    private _DashboardService: DashboardService
   ) { }
 
   async GetAll(StockEntryType: StockEntryEnum) {
@@ -50,8 +49,10 @@ export class StockEntryService {
     NewStockEntry.created_on = new Date();
 
     await stock_entry.insert(NewStockEntry);
+    this._DashboardService.updateStockCache();
     return NewStockEntry;
   }
+
 
   async Update(id: string, stockEntryData: StockEntryModel, userId: string) {
     const ExistingStockEntry = await stock_entry.findOne({ where: { id: id } });
@@ -65,9 +66,8 @@ export class StockEntryService {
     ExistingStockEntry.quantity = stockEntryData.quantity;
     ExistingStockEntry.updated_by_id = userId;
     ExistingStockEntry.updated_on = new Date();
-
     await stock_entry.update(id, ExistingStockEntry);
-    await this.dashboardService.invalidateCache();
+    this._DashboardService.updateStockCache();
     return ExistingStockEntry;
   }
 

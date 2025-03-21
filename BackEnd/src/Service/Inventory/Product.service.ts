@@ -3,10 +3,13 @@ import { BadRequestException, Injectable } from '@nestjs/common';
 import { product } from '@Root/Database/Table/Inventory/product';
 import { result } from 'lodash';
 import { LessThan, Not, Raw } from 'typeorm';
+import { DashboardService } from './Dashboard.service';
 
 @Injectable()
 export class ProductService {
-  constructor() { }
+  constructor(
+    private _DashboardService: DashboardService
+  ) { }
 
   // Get all products
   async GetAll() {
@@ -35,8 +38,8 @@ export class ProductService {
     NewProduct.min_qty = productData.min_qty;
     NewProduct.created_by_id = userId;
     NewProduct.created_on = new Date();
-
     await product.insert(NewProduct);
+    this._DashboardService.updateStockCache();
     return NewProduct;
   }
 
@@ -56,6 +59,7 @@ export class ProductService {
     ExistingProduct.updated_by_id = userId;
     ExistingProduct.updated_on = new Date();
     await product.update(id, ExistingProduct);
+    this._DashboardService.updateStockCache();
     return ExistingProduct;
   }
 
@@ -67,12 +71,6 @@ export class ProductService {
     }
     await productData.remove();
     return true;
-  }
-
-  async GetLowStockProducts() {
-    return await product.find({
-      where: { stock_quantity: Raw(alias => `${alias} < min_qty`) }
-    });
   }
 
 }
