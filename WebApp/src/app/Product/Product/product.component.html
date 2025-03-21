@@ -18,7 +18,7 @@
         <div class="row" [formGroup]="ProductForm">
 
             <div class="col-lg-6 form-group mb-3">
-                <label class="mb-2">Product Category<span style="color: #FC6161;"> * </span></label>
+                <label class="mb-2">Product Category</label>
                 <p-dropdown appendTo="body" formControlName="product_category_id" [filter]="true" [virtualScroll]="true" [itemSize]="5" [options]="ProductCategorydropdown" optionLabel="name" optionValue="id" placeholder="Select Product Category" [(ngModel)]="ProductData.product_category_id"></p-dropdown>
                 <app-validation propertyName="product_category_id" [MessageArray]="ProductValidationMessages" [FormGroupName]="ProductForm"></app-validation>
             </div>

@@ -1,1 +1,107 @@
-<div class="div">Welcome</div>
+<div class="card">
+    <div class="row">
+        <div>
+
+            <div>
+                <p-table [responsive]="true" #dt [globalFilterFields]="['product_category.name','name','stock_quantity','min_qty']" [value]="LowStockList" [paginator]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rows]="10" [showCurrentPageReport]="true"
+                    [rowsPerPageOptions]="[10,25,50]" [scrollable]="true">
+                    <ng-template pTemplate="caption">
+                        <div class="d-flex flex-row flex-wrap justify-content-between align-items-center">
+                            <h2 class="p-text-secondary">List of Low Product Stock</h2>
+                            <span class="p-input-icon-left">
+                    <!-- <i class="pi pi-search"></i> -->
+                    <!-- <input pInputText type="text" placeholder="Search"
+                        (input)="dt.filterGlobal($event.target.value, 'contains')" /> -->
+                </span>
+                        </div>
+                    </ng-template>
+                    <ng-template pTemplate="header" let-columns>
+                        <tr>
+                            <th pSortableColumn="product_id" style="min-width:200px">
+                                Product category Name
+                                <p-sortIcon field="product_id"></p-sortIcon>
+                            </th>
+                            <th pSortableColumn="quantity" style="min-width:150px">
+                                Product Name
+                                <p-sortIcon field="quantity"></p-sortIcon>
+                            </th>
+                            <th pSortableColumn="quantity" style="min-width:150px">
+                                Stock Quantity
+                                <p-sortIcon field="quantity"></p-sortIcon>
+                            </th>
+                            <th pSortableColumn="quantity" style="min-width:150px">
+                                Minimum Quantity
+                                <p-sortIcon field="quantity"></p-sortIcon>
+                            </th>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-rowData>
+                        <tr>
+                            <td>
+                                <span class="p-column-title"> Product Category : </span>{{rowData.product_category.name}}
+                            </td>
+                            <td>
+                                <span class="p-column-title">name : </span>{{rowData.name}}
+                            </td>
+                            <td style="color: red;">
+                                <span class="p-column-title"> Stock Quantity :</span>{{rowData.stock_quantity}}
+                            </td>
+                            <td>
+                                <span class="p-column-title">Minimum Quantity : </span>{{rowData.min_qty}}
+                            </td>
+
+                        </tr>
+                    </ng-template>
+                </p-table>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<br><br>
+
+<div class="card">
+    <div class="row">
+        <div>
+
+            <p-table [responsive]="true" #dt [globalFilterFields]="['categoryName','TotalStock']" [value]="DashboardList" [paginator]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rows]="10" [showCurrentPageReport]="true"
+                [rowsPerPageOptions]="[10,25,50]" [scrollable]="true">
+                <ng-template pTemplate="caption">
+                    <div class="d-flex flex-row flex-wrap justify-content-between align-items-center">
+                        <h2 class="p-text-secondary">List of Category Wise Stock</h2>
+                        <span class="p-input-icon-left">
+                        <!-- <i class="pi pi-search"></i> -->
+                        <!-- <input pInputText type="text" placeholder="Search"
+                            (input)="dt.filterGlobal($event.target.value, 'contains')" /> -->
+                    </span>
+                    </div>
+                </ng-template>
+                <ng-template pTemplate="header" let-columns>
+                    <tr>
+                        <th pSortableColumn="product_id" style="min-width:200px">
+                            Product category Name
+                            <p-sortIcon field="product_id"></p-sortIcon>
+                        </th>
+                        <th pSortableColumn="quantity" style="min-width:150px">
+                            Total Stock
+                            <p-sortIcon field="quantity"></p-sortIcon>
+                        </th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-rowData>
+                    <tr>
+                        <td>
+                            <span class="p-column-title">Product category Name : </span>{{rowData.categoryName}}
+                        </td>
+                        <td>
+                            <span class="p-column-title">Total Stock : </span>{{rowData.TotalStock}}
+                        </td>
+
+                    </tr>
+                </ng-template>
+            </p-table>
+
+        </div>
+    </div>
+</div>

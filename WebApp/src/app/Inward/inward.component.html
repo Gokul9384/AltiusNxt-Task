@@ -26,9 +26,6 @@
                     Quantity
                     <p-sortIcon field="quantity"></p-sortIcon>
                 </th>
-                <th class="text-end" pFrozenColumn>
-                    Action
-                </th>
             </tr>
         </ng-template>
         <ng-template pTemplate="body" let-rowData>
@@ -39,10 +36,10 @@
                 <td>
                     <span class="p-column-title">Quantity : </span>{{rowData.quantity}}
                 </td>
-                <td class="text-end" pFrozenColumn>
+                <!-- <td class="text-end" pFrozenColumn>
                     <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-primary" (click)="CreateInward(rowData.id)"></button>
                     <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-danger ms-3" (click)="Delete(rowData.id)"></button>
-                </td>
+                </td> -->
             </tr>
         </ng-template>
     </p-table>

@@ -48,8 +48,14 @@
                     <span class="p-column-title">name : </span>{{rowData.name}}
                 </td>
                 <td>
-                    <span class="p-column-title"> Stock Quantity :</span>{{rowData.stock_quantity}}
+
+                    <span [ngStyle]="{'color': (+rowData.stock_quantity < +rowData.min_qty) ? 'red' : 'black'}">
+                        {{ rowData.stock_quantity }}
+                    </span>
                 </td>
+
+
+
                 <td>
                     <span class="p-column-title">Minimum Quantity : </span>{{rowData.min_qty}}
                 </td>

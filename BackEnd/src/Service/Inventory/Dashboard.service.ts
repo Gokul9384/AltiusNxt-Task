@@ -31,7 +31,7 @@ export class DashboardService {
       );
 
       return {
-        categoryId: o.id,
+        id: o.id,
         categoryName: o.name,
         TotalStock,
       };
@@ -47,7 +47,7 @@ export class DashboardService {
 
   async getLowStockProducts() {
     const LowStockProducts = await product.find({
-      where: { stock_quantity: Raw(alias => `${alias} < min_qty`) }
+      where: { stock_quantity: Raw(alias => `${alias} < min_qty`) }, relations: ['product_category']
 
     })
     return LowStockProducts;
