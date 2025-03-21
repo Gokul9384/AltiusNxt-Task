@@ -23,6 +23,8 @@ Backend Setup
 
 4. Start the backend server:  
 
+5. Open Swagger in web Broswer http://localhost:8000/swagger#
+
    npm run start
 
 

@@ -1,0 +1,2882 @@
+{
+	"info": {
+		"_postman_id": "68b1a71c-a65f-4384-8748-89efa8dbf8e7",
+		"name": "Product Inventory",
+		"description": "Product Inventory API Description\n\nContact Support:\n Name: Product Inventory\n Email: Demo@Demo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33918015"
+	},
+	"item": [
+		{
+			"name": "api",
+			"item": [
+				{
+					"name": "v1",
+					"item": [
+						{
+							"name": "Auth",
+							"item": [
+								{
+									"name": "Login",
+									"item": [
+										{
+											"name": "Login Controller User Login",
+											"request": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"email\": \"<string>\",\n  \"password\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/v1/Auth/Login",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"Auth",
+														"Login"
+													]
+												}
+											},
+											"response": [
+												{
+													"name": "Untitled Response",
+													"originalRequest": {
+														"method": "POST",
+														"header": [
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"email\": \"<string>\",\n  \"password\": \"<string>\"\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/api/v1/Auth/Login",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"v1",
+																"Auth",
+																"Login"
+															]
+														}
+													},
+													"status": "Created",
+													"code": 201,
+													"_postman_previewlanguage": "text",
+													"header": [],
+													"cookie": [],
+													"body": ""
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "ForgotPassword",
+									"item": [
+										{
+											"name": "Login Controller Forgot Password",
+											"request": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"email\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/v1/Auth/ForgotPassword",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"Auth",
+														"ForgotPassword"
+													]
+												}
+											},
+											"response": [
+												{
+													"name": "Untitled Response",
+													"originalRequest": {
+														"method": "POST",
+														"header": [
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"email\": \"<string>\"\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/api/v1/Auth/ForgotPassword",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"v1",
+																"Auth",
+																"ForgotPassword"
+															]
+														}
+													},
+													"status": "Created",
+													"code": 201,
+													"_postman_previewlanguage": "text",
+													"header": [],
+													"cookie": [],
+													"body": ""
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "ResetPassword",
+									"item": [
+										{
+											"name": "Login Controller Reset Password",
+											"request": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"user_id\": \"<string>\",\n  \"reset_otp\": \"<number>\",\n  \"password\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/v1/Auth/ResetPassword",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"Auth",
+														"ResetPassword"
+													]
+												}
+											},
+											"response": [
+												{
+													"name": "Untitled Response",
+													"originalRequest": {
+														"method": "POST",
+														"header": [
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"user_id\": \"<string>\",\n  \"reset_otp\": \"<number>\",\n  \"password\": \"<string>\"\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/api/v1/Auth/ResetPassword",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"v1",
+																"Auth",
+																"ResetPassword"
+															]
+														}
+													},
+													"status": "Created",
+													"code": 201,
+													"_postman_previewlanguage": "text",
+													"header": [],
+													"cookie": [],
+													"body": ""
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "ClearAllCache",
+									"item": [
+										{
+											"name": "Login Controller Clear All Cache",
+											"request": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/v1/Auth/ClearAllCache",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"Auth",
+														"ClearAllCache"
+													]
+												}
+											},
+											"response": [
+												{
+													"name": "Untitled Response",
+													"originalRequest": {
+														"method": "DELETE",
+														"header": [],
+														"url": {
+															"raw": "{{baseUrl}}/api/v1/Auth/ClearAllCache",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"v1",
+																"Auth",
+																"ClearAllCache"
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "text",
+													"header": [],
+													"cookie": [],
+													"body": ""
+												}
+											]
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "User",
+							"item": [
+								{
+									"name": "List",
+									"item": [
+										{
+											"name": "User Controller List",
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": [
+														{
+															"key": "token",
+															"value": "{{bearerToken}}",
+															"type": "string"
+														}
+													]
+												},
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/v1/User/List",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"User",
+														"List"
+													]
+												}
+											},
+											"response": [
+												{
+													"name": "Untitled Response",
+													"originalRequest": {
+														"method": "GET",
+														"header": [
+															{
+																"key": "Authorization",
+																"value": "Bearer <token>",
+																"description": "Added as a part of security scheme: bearer"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/api/v1/User/List",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"v1",
+																"User",
+																"List"
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "text",
+													"header": [],
+													"cookie": [],
+													"body": ""
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "ById",
+									"item": [
+										{
+											"name": "{Id}",
+											"item": [
+												{
+													"name": "User Controller By Id",
+													"request": {
+														"auth": {
+															"type": "bearer",
+															"bearer": [
+																{
+																	"key": "token",
+																	"value": "{{bearerToken}}",
+																	"type": "string"
+																}
+															]
+														},
+														"method": "GET",
+														"header": [],
+														"url": {
+															"raw": "{{baseUrl}}/api/v1/User/ById/:Id",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"v1",
+																"User",
+																"ById",
+																":Id"
+															],
+															"variable": [
+																{
+																	"key": "Id",
+																	"value": "<string>",
+																	"description": "(Required) "
+																}
+															]
+														}
+													},
+													"response": [
+														{
+															"name": "Untitled Response",
+															"originalRequest": {
+																"method": "GET",
+																"header": [
+																	{
+																		"key": "Authorization",
+																		"value": "Bearer <token>",
+																		"description": "Added as a part of security scheme: bearer"
+																	}
+																],
+																"url": {
+																	"raw": "{{baseUrl}}/api/v1/User/ById/:Id",
+																	"host": [
+																		"{{baseUrl}}"
+																	],
+																	"path": [
+																		"api",
+																		"v1",
+																		"User",
+																		"ById",
+																		":Id"
+																	],
+																	"variable": [
+																		{
+																			"key": "Id"
+																		}
+																	]
+																}
+															},
+															"status": "OK",
+															"code": 200,
+															"_postman_previewlanguage": "text",
+															"header": [],
+															"cookie": [],
+															"body": ""
+														}
+													]
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "Insert",
+									"item": [
+										{
+											"name": "User Controller Insert",
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": [
+														{
+															"key": "token",
+															"value": "{{bearerToken}}",
+															"type": "string"
+														}
+													]
+												},
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"user_role_id\": \"<string>\",\n  \"first_name\": \"<string>\",\n  \"email\": \"<string>\",\n  \"password\": \"<string>\",\n  \"id\": \"<string>\",\n  \"status\": true,\n  \"last_name\": \"<string>\",\n  \"mobile\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/v1/User/Insert",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"User",
+														"Insert"
+													]
+												}
+											},
+											"response": [
+												{
+													"name": "Untitled Response",
+													"originalRequest": {
+														"method": "POST",
+														"header": [
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "Authorization",
+																"value": "Bearer <token>",
+																"description": "Added as a part of security scheme: bearer"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"user_role_id\": \"<string>\",\n  \"first_name\": \"<string>\",\n  \"email\": \"<string>\",\n  \"password\": \"<string>\",\n  \"id\": \"<string>\",\n  \"status\": true,\n  \"last_name\": \"<string>\",\n  \"mobile\": \"<string>\"\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/api/v1/User/Insert",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"v1",
+																"User",
+																"Insert"
+															]
+														}
+													},
+													"status": "Created",
+													"code": 201,
+													"_postman_previewlanguage": "text",
+													"header": [],
+													"cookie": [],
+													"body": ""
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "Update",
+									"item": [
+										{
+											"name": "{Id}",
+											"item": [
+												{
+													"name": "User Controller Update",
+													"request": {
+														"auth": {
+															"type": "bearer",
+															"bearer": [
+																{
+																	"key": "token",
+																	"value": "{{bearerToken}}",
+																	"type": "string"
+																}
+															]
+														},
+														"method": "PUT",
+														"header": [
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"user_role_id\": \"<string>\",\n  \"first_name\": \"<string>\",\n  \"email\": \"<string>\",\n  \"password\": \"<string>\",\n  \"id\": \"<string>\",\n  \"status\": true,\n  \"last_name\": \"<string>\",\n  \"mobile\": \"<string>\"\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/api/v1/User/Update/:Id",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"v1",
+																"User",
+																"Update",
+																":Id"
+															],
+															"variable": [
+																{
+																	"key": "Id",
+																	"value": "<string>",
+																	"description": "(Required) "
+																}
+															]
+														}
+													},
+													"response": [
+														{
+															"name": "Untitled Response",
+															"originalRequest": {
+																"method": "PUT",
+																"header": [
+																	{
+																		"key": "Content-Type",
+																		"value": "application/json"
+																	},
+																	{
+																		"key": "Authorization",
+																		"value": "Bearer <token>",
+																		"description": "Added as a part of security scheme: bearer"
+																	}
+																],
+																"body": {
+																	"mode": "raw",
+																	"raw": "{\n  \"user_role_id\": \"<string>\",\n  \"first_name\": \"<string>\",\n  \"email\": \"<string>\",\n  \"password\": \"<string>\",\n  \"id\": \"<string>\",\n  \"status\": true,\n  \"last_name\": \"<string>\",\n  \"mobile\": \"<string>\"\n}",
+																	"options": {
+																		"raw": {
+																			"headerFamily": "json",
+																			"language": "json"
+																		}
+																	}
+																},
+																"url": {
+																	"raw": "{{baseUrl}}/api/v1/User/Update/:Id",
+																	"host": [
+																		"{{baseUrl}}"
+																	],
+																	"path": [
+																		"api",
+																		"v1",
+																		"User",
+																		"Update",
+																		":Id"
+																	],
+																	"variable": [
+																		{
+																			"key": "Id"
+																		}
+																	]
+																}
+															},
+															"status": "OK",
+															"code": 200,
+															"_postman_previewlanguage": "text",
+															"header": [],
+															"cookie": [],
+															"body": ""
+														}
+													]
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "SuspendOrActivate",
+									"item": [
+										{
+											"name": "{Id}",
+											"item": [
+												{
+													"name": "User Controller Suspend Or Activate",
+													"request": {
+														"auth": {
+															"type": "bearer",
+															"bearer": [
+																{
+																	"key": "token",
+																	"value": "{{bearerToken}}",
+																	"type": "string"
+																}
+															]
+														},
+														"method": "PATCH",
+														"header": [],
+														"url": {
+															"raw": "{{baseUrl}}/api/v1/User/SuspendOrActivate/:Id",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"v1",
+																"User",
+																"SuspendOrActivate",
+																":Id"
+															],
+															"variable": [
+																{
+																	"key": "Id",
+																	"value": "<string>",
+																	"description": "(Required) "
+																}
+															]
+														}
+													},
+													"response": [
+														{
+															"name": "Untitled Response",
+															"originalRequest": {
+																"method": "PATCH",
+																"header": [
+																	{
+																		"key": "Authorization",
+																		"value": "Bearer <token>",
+																		"description": "Added as a part of security scheme: bearer"
+																	}
+																],
+																"url": {
+																	"raw": "{{baseUrl}}/api/v1/User/SuspendOrActivate/:Id",
+																	"host": [
+																		"{{baseUrl}}"
+																	],
+																	"path": [
+																		"api",
+																		"v1",
+																		"User",
+																		"SuspendOrActivate",
+																		":Id"
+																	],
+																	"variable": [
+																		{
+																			"key": "Id"
+																		}
+																	]
+																}
+															},
+															"status": "OK",
+															"code": 200,
+															"_postman_previewlanguage": "text",
+															"header": [],
+															"cookie": [],
+															"body": ""
+														}
+													]
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "ChangePassword",
+									"item": [
+										{
+											"name": "User Controller Change Password",
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": [
+														{
+															"key": "token",
+															"value": "{{bearerToken}}",
+															"type": "string"
+														}
+													]
+												},
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"old_password\": \"<string>\",\n  \"password\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/v1/User/ChangePassword",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"User",
+														"ChangePassword"
+													]
+												}
+											},
+											"response": [
+												{
+													"name": "Untitled Response",
+													"originalRequest": {
+														"method": "POST",
+														"header": [
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "Authorization",
+																"value": "Bearer <token>",
+																"description": "Added as a part of security scheme: bearer"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"old_password\": \"<string>\",\n  \"password\": \"<string>\"\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/api/v1/User/ChangePassword",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"v1",
+																"User",
+																"ChangePassword"
+															]
+														}
+													},
+													"status": "Created",
+													"code": 201,
+													"_postman_previewlanguage": "text",
+													"header": [],
+													"cookie": [],
+													"body": ""
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "ResetPassword",
+									"item": [
+										{
+											"name": "{Id}",
+											"item": [
+												{
+													"name": "User Controller Reset Password",
+													"request": {
+														"auth": {
+															"type": "bearer",
+															"bearer": [
+																{
+																	"key": "token",
+																	"value": "{{bearerToken}}",
+																	"type": "string"
+																}
+															]
+														},
+														"method": "PUT",
+														"header": [
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"user_role_id\": \"<string>\",\n  \"first_name\": \"<string>\",\n  \"email\": \"<string>\",\n  \"password\": \"<string>\",\n  \"id\": \"<string>\",\n  \"status\": true,\n  \"last_name\": \"<string>\",\n  \"mobile\": \"<string>\"\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/api/v1/User/ResetPassword/:Id",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"v1",
+																"User",
+																"ResetPassword",
+																":Id"
+															],
+															"variable": [
+																{
+																	"key": "Id",
+																	"value": "<string>",
+																	"description": "(Required) "
+																}
+															]
+														}
+													},
+													"response": [
+														{
+															"name": "Untitled Response",
+															"originalRequest": {
+																"method": "PUT",
+																"header": [
+																	{
+																		"key": "Content-Type",
+																		"value": "application/json"
+																	},
+																	{
+																		"key": "Authorization",
+																		"value": "Bearer <token>",
+																		"description": "Added as a part of security scheme: bearer"
+																	}
+																],
+																"body": {
+																	"mode": "raw",
+																	"raw": "{\n  \"user_role_id\": \"<string>\",\n  \"first_name\": \"<string>\",\n  \"email\": \"<string>\",\n  \"password\": \"<string>\",\n  \"id\": \"<string>\",\n  \"status\": true,\n  \"last_name\": \"<string>\",\n  \"mobile\": \"<string>\"\n}",
+																	"options": {
+																		"raw": {
+																			"headerFamily": "json",
+																			"language": "json"
+																		}
+																	}
+																},
+																"url": {
+																	"raw": "{{baseUrl}}/api/v1/User/ResetPassword/:Id",
+																	"host": [
+																		"{{baseUrl}}"
+																	],
+																	"path": [
+																		"api",
+																		"v1",
+																		"User",
+																		"ResetPassword",
+																		":Id"
+																	],
+																	"variable": [
+																		{
+																			"key": "Id"
+																		}
+																	]
+																}
+															},
+															"status": "OK",
+															"code": 200,
+															"_postman_previewlanguage": "text",
+															"header": [],
+															"cookie": [],
+															"body": ""
+														}
+													]
+												}
+											]
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "UserRole",
+							"item": [
+								{
+									"name": "List",
+									"item": [
+										{
+											"name": "User Role Controller List",
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": [
+														{
+															"key": "token",
+															"value": "{{bearerToken}}",
+															"type": "string"
+														}
+													]
+												},
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/v1/UserRole/List",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"UserRole",
+														"List"
+													]
+												}
+											},
+											"response": [
+												{
+													"name": "Untitled Response",
+													"originalRequest": {
+														"method": "GET",
+														"header": [
+															{
+																"key": "Authorization",
+																"value": "Bearer <token>",
+																"description": "Added as a part of security scheme: bearer"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/api/v1/UserRole/List",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"v1",
+																"UserRole",
+																"List"
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "text",
+													"header": [],
+													"cookie": [],
+													"body": ""
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "ById",
+									"item": [
+										{
+											"name": "{Id}",
+											"item": [
+												{
+													"name": "User Role Controller By Id",
+													"request": {
+														"auth": {
+															"type": "bearer",
+															"bearer": [
+																{
+																	"key": "token",
+																	"value": "{{bearerToken}}",
+																	"type": "string"
+																}
+															]
+														},
+														"method": "GET",
+														"header": [],
+														"url": {
+															"raw": "{{baseUrl}}/api/v1/UserRole/ById/:Id",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"v1",
+																"UserRole",
+																"ById",
+																":Id"
+															],
+															"variable": [
+																{
+																	"key": "Id",
+																	"value": "<string>",
+																	"description": "(Required) "
+																}
+															]
+														}
+													},
+													"response": [
+														{
+															"name": "Untitled Response",
+															"originalRequest": {
+																"method": "GET",
+																"header": [
+																	{
+																		"key": "Authorization",
+																		"value": "Bearer <token>",
+																		"description": "Added as a part of security scheme: bearer"
+																	}
+																],
+																"url": {
+																	"raw": "{{baseUrl}}/api/v1/UserRole/ById/:Id",
+																	"host": [
+																		"{{baseUrl}}"
+																	],
+																	"path": [
+																		"api",
+																		"v1",
+																		"UserRole",
+																		"ById",
+																		":Id"
+																	],
+																	"variable": [
+																		{
+																			"key": "Id"
+																		}
+																	]
+																}
+															},
+															"status": "OK",
+															"code": 200,
+															"_postman_previewlanguage": "text",
+															"header": [],
+															"cookie": [],
+															"body": ""
+														}
+													]
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "Insert",
+									"item": [
+										{
+											"name": "User Role Controller Insert",
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": [
+														{
+															"key": "token",
+															"value": "{{bearerToken}}",
+															"type": "string"
+														}
+													]
+												},
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"name\": \"<string>\",\n  \"id\": \"<string>\",\n  \"status\": true,\n  \"code\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/v1/UserRole/Insert",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"UserRole",
+														"Insert"
+													]
+												}
+											},
+											"response": [
+												{
+													"name": "Untitled Response",
+													"originalRequest": {
+														"method": "POST",
+														"header": [
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "Authorization",
+																"value": "Bearer <token>",
+																"description": "Added as a part of security scheme: bearer"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"name\": \"<string>\",\n  \"id\": \"<string>\",\n  \"status\": true,\n  \"code\": \"<string>\"\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/api/v1/UserRole/Insert",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"v1",
+																"UserRole",
+																"Insert"
+															]
+														}
+													},
+													"status": "Created",
+													"code": 201,
+													"_postman_previewlanguage": "text",
+													"header": [],
+													"cookie": [],
+													"body": ""
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "Update",
+									"item": [
+										{
+											"name": "{Id}",
+											"item": [
+												{
+													"name": "User Role Controller Update",
+													"request": {
+														"auth": {
+															"type": "bearer",
+															"bearer": [
+																{
+																	"key": "token",
+																	"value": "{{bearerToken}}",
+																	"type": "string"
+																}
+															]
+														},
+														"method": "PUT",
+														"header": [
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"name\": \"<string>\",\n  \"id\": \"<string>\",\n  \"status\": true,\n  \"code\": \"<string>\"\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/api/v1/UserRole/Update/:Id",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"v1",
+																"UserRole",
+																"Update",
+																":Id"
+															],
+															"variable": [
+																{
+																	"key": "Id",
+																	"value": "<string>",
+																	"description": "(Required) "
+																}
+															]
+														}
+													},
+													"response": [
+														{
+															"name": "Untitled Response",
+															"originalRequest": {
+																"method": "PUT",
+																"header": [
+																	{
+																		"key": "Content-Type",
+																		"value": "application/json"
+																	},
+																	{
+																		"key": "Authorization",
+																		"value": "Bearer <token>",
+																		"description": "Added as a part of security scheme: bearer"
+																	}
+																],
+																"body": {
+																	"mode": "raw",
+																	"raw": "{\n  \"name\": \"<string>\",\n  \"id\": \"<string>\",\n  \"status\": true,\n  \"code\": \"<string>\"\n}",
+																	"options": {
+																		"raw": {
+																			"headerFamily": "json",
+																			"language": "json"
+																		}
+																	}
+																},
+																"url": {
+																	"raw": "{{baseUrl}}/api/v1/UserRole/Update/:Id",
+																	"host": [
+																		"{{baseUrl}}"
+																	],
+																	"path": [
+																		"api",
+																		"v1",
+																		"UserRole",
+																		"Update",
+																		":Id"
+																	],
+																	"variable": [
+																		{
+																			"key": "Id"
+																		}
+																	]
+																}
+															},
+															"status": "OK",
+															"code": 200,
+															"_postman_previewlanguage": "text",
+															"header": [],
+															"cookie": [],
+															"body": ""
+														}
+													]
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "Delete",
+									"item": [
+										{
+											"name": "{Id}",
+											"item": [
+												{
+													"name": "User Role Controller Delete",
+													"request": {
+														"auth": {
+															"type": "bearer",
+															"bearer": [
+																{
+																	"key": "token",
+																	"value": "{{bearerToken}}",
+																	"type": "string"
+																}
+															]
+														},
+														"method": "DELETE",
+														"header": [],
+														"url": {
+															"raw": "{{baseUrl}}/api/v1/UserRole/Delete/:Id",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"v1",
+																"UserRole",
+																"Delete",
+																":Id"
+															],
+															"variable": [
+																{
+																	"key": "Id",
+																	"value": "<string>",
+																	"description": "(Required) "
+																}
+															]
+														}
+													},
+													"response": [
+														{
+															"name": "Untitled Response",
+															"originalRequest": {
+																"method": "DELETE",
+																"header": [
+																	{
+																		"key": "Authorization",
+																		"value": "Bearer <token>",
+																		"description": "Added as a part of security scheme: bearer"
+																	}
+																],
+																"url": {
+																	"raw": "{{baseUrl}}/api/v1/UserRole/Delete/:Id",
+																	"host": [
+																		"{{baseUrl}}"
+																	],
+																	"path": [
+																		"api",
+																		"v1",
+																		"UserRole",
+																		"Delete",
+																		":Id"
+																	],
+																	"variable": [
+																		{
+																			"key": "Id"
+																		}
+																	]
+																}
+															},
+															"status": "OK",
+															"code": 200,
+															"_postman_previewlanguage": "text",
+															"header": [],
+															"cookie": [],
+															"body": ""
+														}
+													]
+												}
+											]
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "Product",
+							"item": [
+								{
+									"name": "List",
+									"item": [
+										{
+											"name": "Product Controller List",
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": [
+														{
+															"key": "token",
+															"value": "{{bearerToken}}",
+															"type": "string"
+														}
+													]
+												},
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/v1/Product/List",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"Product",
+														"List"
+													]
+												}
+											},
+											"response": [
+												{
+													"name": "Untitled Response",
+													"originalRequest": {
+														"method": "GET",
+														"header": [
+															{
+																"key": "Authorization",
+																"value": "Bearer <token>",
+																"description": "Added as a part of security scheme: bearer"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/api/v1/Product/List",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"v1",
+																"Product",
+																"List"
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "text",
+													"header": [],
+													"cookie": [],
+													"body": ""
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "ById",
+									"item": [
+										{
+											"name": "{Id}",
+											"item": [
+												{
+													"name": "Product Controller By Id",
+													"request": {
+														"auth": {
+															"type": "bearer",
+															"bearer": [
+																{
+																	"key": "token",
+																	"value": "{{bearerToken}}",
+																	"type": "string"
+																}
+															]
+														},
+														"method": "GET",
+														"header": [],
+														"url": {
+															"raw": "{{baseUrl}}/api/v1/Product/ById/:Id",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"v1",
+																"Product",
+																"ById",
+																":Id"
+															],
+															"variable": [
+																{
+																	"key": "Id",
+																	"value": "<string>",
+																	"description": "(Required) "
+																}
+															]
+														}
+													},
+													"response": [
+														{
+															"name": "Untitled Response",
+															"originalRequest": {
+																"method": "GET",
+																"header": [
+																	{
+																		"key": "Authorization",
+																		"value": "Bearer <token>",
+																		"description": "Added as a part of security scheme: bearer"
+																	}
+																],
+																"url": {
+																	"raw": "{{baseUrl}}/api/v1/Product/ById/:Id",
+																	"host": [
+																		"{{baseUrl}}"
+																	],
+																	"path": [
+																		"api",
+																		"v1",
+																		"Product",
+																		"ById",
+																		":Id"
+																	],
+																	"variable": [
+																		{
+																			"key": "Id"
+																		}
+																	]
+																}
+															},
+															"status": "OK",
+															"code": 200,
+															"_postman_previewlanguage": "text",
+															"header": [],
+															"cookie": [],
+															"body": ""
+														}
+													]
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "Insert",
+									"item": [
+										{
+											"name": "Product Controller Insert",
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": [
+														{
+															"key": "token",
+															"value": "{{bearerToken}}",
+															"type": "string"
+														}
+													]
+												},
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"name\": \"<string>\",\n  \"product_category_id\": \"<string>\",\n  \"min_qty\": \"<number>\",\n  \"id\": \"<string>\",\n  \"status\": true,\n  \"stock_quantity\": \"<number>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/v1/Product/Insert",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"Product",
+														"Insert"
+													]
+												}
+											},
+											"response": [
+												{
+													"name": "Untitled Response",
+													"originalRequest": {
+														"method": "POST",
+														"header": [
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "Authorization",
+																"value": "Bearer <token>",
+																"description": "Added as a part of security scheme: bearer"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"name\": \"<string>\",\n  \"product_category_id\": \"<string>\",\n  \"min_qty\": \"<number>\",\n  \"id\": \"<string>\",\n  \"status\": true,\n  \"stock_quantity\": \"<number>\"\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/api/v1/Product/Insert",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"v1",
+																"Product",
+																"Insert"
+															]
+														}
+													},
+													"status": "Created",
+													"code": 201,
+													"_postman_previewlanguage": "text",
+													"header": [],
+													"cookie": [],
+													"body": ""
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "Delete",
+									"item": [
+										{
+											"name": "{Id}",
+											"item": [
+												{
+													"name": "Product Controller Delete",
+													"request": {
+														"auth": {
+															"type": "bearer",
+															"bearer": [
+																{
+																	"key": "token",
+																	"value": "{{bearerToken}}",
+																	"type": "string"
+																}
+															]
+														},
+														"method": "DELETE",
+														"header": [],
+														"url": {
+															"raw": "{{baseUrl}}/api/v1/Product/Delete/:Id",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"v1",
+																"Product",
+																"Delete",
+																":Id"
+															],
+															"variable": [
+																{
+																	"key": "Id",
+																	"value": "<string>",
+																	"description": "(Required) "
+																}
+															]
+														}
+													},
+													"response": [
+														{
+															"name": "Untitled Response",
+															"originalRequest": {
+																"method": "DELETE",
+																"header": [
+																	{
+																		"key": "Authorization",
+																		"value": "Bearer <token>",
+																		"description": "Added as a part of security scheme: bearer"
+																	}
+																],
+																"url": {
+																	"raw": "{{baseUrl}}/api/v1/Product/Delete/:Id",
+																	"host": [
+																		"{{baseUrl}}"
+																	],
+																	"path": [
+																		"api",
+																		"v1",
+																		"Product",
+																		"Delete",
+																		":Id"
+																	],
+																	"variable": [
+																		{
+																			"key": "Id"
+																		}
+																	]
+																}
+															},
+															"status": "OK",
+															"code": 200,
+															"_postman_previewlanguage": "text",
+															"header": [],
+															"cookie": [],
+															"body": ""
+														}
+													]
+												}
+											]
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "ProductCategory",
+							"item": [
+								{
+									"name": "List",
+									"item": [
+										{
+											"name": "Product Category Controller List",
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": [
+														{
+															"key": "token",
+															"value": "{{bearerToken}}",
+															"type": "string"
+														}
+													]
+												},
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/v1/ProductCategory/List",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"ProductCategory",
+														"List"
+													]
+												}
+											},
+											"response": [
+												{
+													"name": "Untitled Response",
+													"originalRequest": {
+														"method": "GET",
+														"header": [
+															{
+																"key": "Authorization",
+																"value": "Bearer <token>",
+																"description": "Added as a part of security scheme: bearer"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/api/v1/ProductCategory/List",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"v1",
+																"ProductCategory",
+																"List"
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "text",
+													"header": [],
+													"cookie": [],
+													"body": ""
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "ById",
+									"item": [
+										{
+											"name": "{Id}",
+											"item": [
+												{
+													"name": "Product Category Controller By Id",
+													"request": {
+														"auth": {
+															"type": "bearer",
+															"bearer": [
+																{
+																	"key": "token",
+																	"value": "{{bearerToken}}",
+																	"type": "string"
+																}
+															]
+														},
+														"method": "GET",
+														"header": [],
+														"url": {
+															"raw": "{{baseUrl}}/api/v1/ProductCategory/ById/:Id",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"v1",
+																"ProductCategory",
+																"ById",
+																":Id"
+															],
+															"variable": [
+																{
+																	"key": "Id",
+																	"value": "<string>",
+																	"description": "(Required) "
+																}
+															]
+														}
+													},
+													"response": [
+														{
+															"name": "Untitled Response",
+															"originalRequest": {
+																"method": "GET",
+																"header": [
+																	{
+																		"key": "Authorization",
+																		"value": "Bearer <token>",
+																		"description": "Added as a part of security scheme: bearer"
+																	}
+																],
+																"url": {
+																	"raw": "{{baseUrl}}/api/v1/ProductCategory/ById/:Id",
+																	"host": [
+																		"{{baseUrl}}"
+																	],
+																	"path": [
+																		"api",
+																		"v1",
+																		"ProductCategory",
+																		"ById",
+																		":Id"
+																	],
+																	"variable": [
+																		{
+																			"key": "Id"
+																		}
+																	]
+																}
+															},
+															"status": "OK",
+															"code": 200,
+															"_postman_previewlanguage": "text",
+															"header": [],
+															"cookie": [],
+															"body": ""
+														}
+													]
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "Insert",
+									"item": [
+										{
+											"name": "Product Category Controller Insert",
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": [
+														{
+															"key": "token",
+															"value": "{{bearerToken}}",
+															"type": "string"
+														}
+													]
+												},
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"name\": \"<string>\",\n  \"id\": \"<string>\",\n  \"status\": true\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/v1/ProductCategory/Insert",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"ProductCategory",
+														"Insert"
+													]
+												}
+											},
+											"response": [
+												{
+													"name": "Untitled Response",
+													"originalRequest": {
+														"method": "POST",
+														"header": [
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "Authorization",
+																"value": "Bearer <token>",
+																"description": "Added as a part of security scheme: bearer"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"name\": \"<string>\",\n  \"id\": \"<string>\",\n  \"status\": true\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/api/v1/ProductCategory/Insert",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"v1",
+																"ProductCategory",
+																"Insert"
+															]
+														}
+													},
+													"status": "Created",
+													"code": 201,
+													"_postman_previewlanguage": "text",
+													"header": [],
+													"cookie": [],
+													"body": ""
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "Update",
+									"item": [
+										{
+											"name": "{Id}",
+											"item": [
+												{
+													"name": "Product Category Controller Update",
+													"request": {
+														"auth": {
+															"type": "bearer",
+															"bearer": [
+																{
+																	"key": "token",
+																	"value": "{{bearerToken}}",
+																	"type": "string"
+																}
+															]
+														},
+														"method": "PUT",
+														"header": [
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"name\": \"<string>\",\n  \"id\": \"<string>\",\n  \"status\": true\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/api/v1/ProductCategory/Update/:Id",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"v1",
+																"ProductCategory",
+																"Update",
+																":Id"
+															],
+															"variable": [
+																{
+																	"key": "Id",
+																	"value": "<string>",
+																	"description": "(Required) "
+																}
+															]
+														}
+													},
+													"response": [
+														{
+															"name": "Untitled Response",
+															"originalRequest": {
+																"method": "PUT",
+																"header": [
+																	{
+																		"key": "Content-Type",
+																		"value": "application/json"
+																	},
+																	{
+																		"key": "Authorization",
+																		"value": "Bearer <token>",
+																		"description": "Added as a part of security scheme: bearer"
+																	}
+																],
+																"body": {
+																	"mode": "raw",
+																	"raw": "{\n  \"name\": \"<string>\",\n  \"id\": \"<string>\",\n  \"status\": true\n}",
+																	"options": {
+																		"raw": {
+																			"headerFamily": "json",
+																			"language": "json"
+																		}
+																	}
+																},
+																"url": {
+																	"raw": "{{baseUrl}}/api/v1/ProductCategory/Update/:Id",
+																	"host": [
+																		"{{baseUrl}}"
+																	],
+																	"path": [
+																		"api",
+																		"v1",
+																		"ProductCategory",
+																		"Update",
+																		":Id"
+																	],
+																	"variable": [
+																		{
+																			"key": "Id"
+																		}
+																	]
+																}
+															},
+															"status": "OK",
+															"code": 200,
+															"_postman_previewlanguage": "text",
+															"header": [],
+															"cookie": [],
+															"body": ""
+														}
+													]
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "Delete",
+									"item": [
+										{
+											"name": "{Id}",
+											"item": [
+												{
+													"name": "Product Category Controller Delete",
+													"request": {
+														"auth": {
+															"type": "bearer",
+															"bearer": [
+																{
+																	"key": "token",
+																	"value": "{{bearerToken}}",
+																	"type": "string"
+																}
+															]
+														},
+														"method": "DELETE",
+														"header": [],
+														"url": {
+															"raw": "{{baseUrl}}/api/v1/ProductCategory/Delete/:Id",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"v1",
+																"ProductCategory",
+																"Delete",
+																":Id"
+															],
+															"variable": [
+																{
+																	"key": "Id",
+																	"value": "<string>",
+																	"description": "(Required) "
+																}
+															]
+														}
+													},
+													"response": [
+														{
+															"name": "Untitled Response",
+															"originalRequest": {
+																"method": "DELETE",
+																"header": [
+																	{
+																		"key": "Authorization",
+																		"value": "Bearer <token>",
+																		"description": "Added as a part of security scheme: bearer"
+																	}
+																],
+																"url": {
+																	"raw": "{{baseUrl}}/api/v1/ProductCategory/Delete/:Id",
+																	"host": [
+																		"{{baseUrl}}"
+																	],
+																	"path": [
+																		"api",
+																		"v1",
+																		"ProductCategory",
+																		"Delete",
+																		":Id"
+																	],
+																	"variable": [
+																		{
+																			"key": "Id"
+																		}
+																	]
+																}
+															},
+															"status": "OK",
+															"code": 200,
+															"_postman_previewlanguage": "text",
+															"header": [],
+															"cookie": [],
+															"body": ""
+														}
+													]
+												}
+											]
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "StockEntry",
+							"item": [
+								{
+									"name": "List",
+									"item": [
+										{
+											"name": "{Id}",
+											"item": [
+												{
+													"name": "Stock Entry Controller List",
+													"request": {
+														"auth": {
+															"type": "bearer",
+															"bearer": [
+																{
+																	"key": "token",
+																	"value": "{{bearerToken}}",
+																	"type": "string"
+																}
+															]
+														},
+														"method": "GET",
+														"header": [],
+														"url": {
+															"raw": "{{baseUrl}}/api/v1/StockEntry/List/:Id",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"v1",
+																"StockEntry",
+																"List",
+																":Id"
+															],
+															"variable": [
+																{
+																	"key": "Id",
+																	"value": "",
+																	"description": "(Required) "
+																}
+															]
+														}
+													},
+													"response": [
+														{
+															"name": "Untitled Response",
+															"originalRequest": {
+																"method": "GET",
+																"header": [
+																	{
+																		"key": "Authorization",
+																		"value": "Bearer <token>",
+																		"description": "Added as a part of security scheme: bearer"
+																	}
+																],
+																"url": {
+																	"raw": "{{baseUrl}}/api/v1/StockEntry/List/:Id",
+																	"host": [
+																		"{{baseUrl}}"
+																	],
+																	"path": [
+																		"api",
+																		"v1",
+																		"StockEntry",
+																		"List",
+																		":Id"
+																	],
+																	"variable": [
+																		{
+																			"key": "Id"
+																		}
+																	]
+																}
+															},
+															"status": "OK",
+															"code": 200,
+															"_postman_previewlanguage": "text",
+															"header": [],
+															"cookie": [],
+															"body": ""
+														}
+													]
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "ById",
+									"item": [
+										{
+											"name": "{Id}",
+											"item": [
+												{
+													"name": "Stock Entry Controller By Id",
+													"request": {
+														"auth": {
+															"type": "bearer",
+															"bearer": [
+																{
+																	"key": "token",
+																	"value": "{{bearerToken}}",
+																	"type": "string"
+																}
+															]
+														},
+														"method": "GET",
+														"header": [],
+														"url": {
+															"raw": "{{baseUrl}}/api/v1/StockEntry/ById/:Id",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"v1",
+																"StockEntry",
+																"ById",
+																":Id"
+															],
+															"variable": [
+																{
+																	"key": "Id",
+																	"value": "<string>",
+																	"description": "(Required) "
+																}
+															]
+														}
+													},
+													"response": [
+														{
+															"name": "Untitled Response",
+															"originalRequest": {
+																"method": "GET",
+																"header": [
+																	{
+																		"key": "Authorization",
+																		"value": "Bearer <token>",
+																		"description": "Added as a part of security scheme: bearer"
+																	}
+																],
+																"url": {
+																	"raw": "{{baseUrl}}/api/v1/StockEntry/ById/:Id",
+																	"host": [
+																		"{{baseUrl}}"
+																	],
+																	"path": [
+																		"api",
+																		"v1",
+																		"StockEntry",
+																		"ById",
+																		":Id"
+																	],
+																	"variable": [
+																		{
+																			"key": "Id"
+																		}
+																	]
+																}
+															},
+															"status": "OK",
+															"code": 200,
+															"_postman_previewlanguage": "text",
+															"header": [],
+															"cookie": [],
+															"body": ""
+														}
+													]
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "Insert",
+									"item": [
+										{
+											"name": "Stock Entry Controller Insert",
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": [
+														{
+															"key": "token",
+															"value": "{{bearerToken}}",
+															"type": "string"
+														}
+													]
+												},
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"product_id\": \"<string>\",\n  \"quantity\": \"<number>\",\n  \"id\": \"<string>\",\n  \"status\": true,\n  \"type\": \"Inward\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/v1/StockEntry/Insert",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"StockEntry",
+														"Insert"
+													]
+												}
+											},
+											"response": [
+												{
+													"name": "Untitled Response",
+													"originalRequest": {
+														"method": "POST",
+														"header": [
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "Authorization",
+																"value": "Bearer <token>",
+																"description": "Added as a part of security scheme: bearer"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"product_id\": \"<string>\",\n  \"quantity\": \"<number>\",\n  \"id\": \"<string>\",\n  \"status\": true,\n  \"type\": \"Inward\"\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/api/v1/StockEntry/Insert",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"v1",
+																"StockEntry",
+																"Insert"
+															]
+														}
+													},
+													"status": "Created",
+													"code": 201,
+													"_postman_previewlanguage": "text",
+													"header": [],
+													"cookie": [],
+													"body": ""
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "Update",
+									"item": [
+										{
+											"name": "{Id}",
+											"item": [
+												{
+													"name": "Stock Entry Controller Update",
+													"request": {
+														"auth": {
+															"type": "bearer",
+															"bearer": [
+																{
+																	"key": "token",
+																	"value": "{{bearerToken}}",
+																	"type": "string"
+																}
+															]
+														},
+														"method": "PUT",
+														"header": [
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"product_id\": \"<string>\",\n  \"quantity\": \"<number>\",\n  \"id\": \"<string>\",\n  \"status\": true,\n  \"type\": \"Inward\"\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/api/v1/StockEntry/Update/:Id",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"v1",
+																"StockEntry",
+																"Update",
+																":Id"
+															],
+															"variable": [
+																{
+																	"key": "Id",
+																	"value": "<string>",
+																	"description": "(Required) "
+																}
+															]
+														}
+													},
+													"response": [
+														{
+															"name": "Untitled Response",
+															"originalRequest": {
+																"method": "PUT",
+																"header": [
+																	{
+																		"key": "Content-Type",
+																		"value": "application/json"
+																	},
+																	{
+																		"key": "Authorization",
+																		"value": "Bearer <token>",
+																		"description": "Added as a part of security scheme: bearer"
+																	}
+																],
+																"body": {
+																	"mode": "raw",
+																	"raw": "{\n  \"product_id\": \"<string>\",\n  \"quantity\": \"<number>\",\n  \"id\": \"<string>\",\n  \"status\": true,\n  \"type\": \"Inward\"\n}",
+																	"options": {
+																		"raw": {
+																			"headerFamily": "json",
+																			"language": "json"
+																		}
+																	}
+																},
+																"url": {
+																	"raw": "{{baseUrl}}/api/v1/StockEntry/Update/:Id",
+																	"host": [
+																		"{{baseUrl}}"
+																	],
+																	"path": [
+																		"api",
+																		"v1",
+																		"StockEntry",
+																		"Update",
+																		":Id"
+																	],
+																	"variable": [
+																		{
+																			"key": "Id"
+																		}
+																	]
+																}
+															},
+															"status": "OK",
+															"code": 200,
+															"_postman_previewlanguage": "text",
+															"header": [],
+															"cookie": [],
+															"body": ""
+														}
+													]
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "Delete",
+									"item": [
+										{
+											"name": "{Id}",
+											"item": [
+												{
+													"name": "Stock Entry Controller Delete",
+													"request": {
+														"auth": {
+															"type": "bearer",
+															"bearer": [
+																{
+																	"key": "token",
+																	"value": "{{bearerToken}}",
+																	"type": "string"
+																}
+															]
+														},
+														"method": "DELETE",
+														"header": [],
+														"url": {
+															"raw": "{{baseUrl}}/api/v1/StockEntry/Delete/:Id",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"v1",
+																"StockEntry",
+																"Delete",
+																":Id"
+															],
+															"variable": [
+																{
+																	"key": "Id",
+																	"value": "<string>",
+																	"description": "(Required) "
+																}
+															]
+														}
+													},
+													"response": [
+														{
+															"name": "Untitled Response",
+															"originalRequest": {
+																"method": "DELETE",
+																"header": [
+																	{
+																		"key": "Authorization",
+																		"value": "Bearer <token>",
+																		"description": "Added as a part of security scheme: bearer"
+																	}
+																],
+																"url": {
+																	"raw": "{{baseUrl}}/api/v1/StockEntry/Delete/:Id",
+																	"host": [
+																		"{{baseUrl}}"
+																	],
+																	"path": [
+																		"api",
+																		"v1",
+																		"StockEntry",
+																		"Delete",
+																		":Id"
+																	],
+																	"variable": [
+																		{
+																			"key": "Id"
+																		}
+																	]
+																}
+															},
+															"status": "OK",
+															"code": 200,
+															"_postman_previewlanguage": "text",
+															"header": [],
+															"cookie": [],
+															"body": ""
+														}
+													]
+												}
+											]
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "Dashboard",
+							"item": [
+								{
+									"name": "category-wise-stock",
+									"item": [
+										{
+											"name": "Dashboard Controller get Category Wise Stock",
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": [
+														{
+															"key": "token",
+															"value": "{{bearerToken}}",
+															"type": "string"
+														}
+													]
+												},
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/v1/Dashboard/category-wise-stock",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"Dashboard",
+														"category-wise-stock"
+													]
+												}
+											},
+											"response": [
+												{
+													"name": "Untitled Response",
+													"originalRequest": {
+														"method": "GET",
+														"header": [
+															{
+																"key": "Authorization",
+																"value": "Bearer <token>",
+																"description": "Added as a part of security scheme: bearer"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/api/v1/Dashboard/category-wise-stock",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"v1",
+																"Dashboard",
+																"category-wise-stock"
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "text",
+													"header": [],
+													"cookie": [],
+													"body": ""
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "low-stock-products",
+									"item": [
+										{
+											"name": "Dashboard Controller get Low Stock Products",
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": [
+														{
+															"key": "token",
+															"value": "{{bearerToken}}",
+															"type": "string"
+														}
+													]
+												},
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/v1/Dashboard/low-stock-products",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"Dashboard",
+														"low-stock-products"
+													]
+												}
+											},
+											"response": [
+												{
+													"name": "Untitled Response",
+													"originalRequest": {
+														"method": "GET",
+														"header": [
+															{
+																"key": "Authorization",
+																"value": "Bearer <token>",
+																"description": "Added as a part of security scheme: bearer"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/api/v1/Dashboard/low-stock-products",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"v1",
+																"Dashboard",
+																"low-stock-products"
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "text",
+													"header": [],
+													"cookie": [],
+													"body": ""
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8000"
+		},
+		{
+			"key": "bearerToken",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQHVzZXIuY29tIiwidXNlcl9pZCI6ImU1ZGM4MDBmLTNkMjYtNGI2Yy04OTE4LWFhZGYxNjc5OTU3OCIsInVzZXJfcm9sZV9pZCI6ImYzMmY5YTU4LTFlYTItNDZjZS05ODMxLTBhNTNlNDQ0OTY1ZiIsInVzZXJfcm9sZV9uYW1lIjoiU3VwZXIgQWRtaW4iLCJpYXQiOjE3NDI1NTEzODksImV4cCI6MTc0MjYzNzc4OX0.txwE-QnPEGXxmr2JymYX98WGCJUpO6BhHI8u0QXOt-s",
+			"type": "string"
+		}
+	]
+}
