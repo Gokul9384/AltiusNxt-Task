@@ -25,6 +25,7 @@ export class InwardComponent implements OnInit {
   InwardDialog: boolean = false;
   visible: boolean = false;
   ProductList: any = [];
+  availableQuantity: number = 0;
 
   constructor(
     public helper: CommonHelper,
@@ -36,12 +37,22 @@ export class InwardComponent implements OnInit {
     this.helper.ShowSpinner();
     await this.GetInwardList();
     this.helper.HideSpinner();
+    await this.GetProductList();
   }
 
   InwardValidationMessage = {
-    'quantity': [{ type: 'required', message: 'Name cannot be blank.' },],
-    'product_id': [{ type: 'required', message: 'Please select State/Territory/Province.' },],
+    'quantity': [{ type: 'required', message: 'Quantity cannot be blank.' },],
+    'product_id': [{ type: 'required', message: 'Please select Product' },],
   };
+
+  onProductChange(productId: number) {
+    const selectedProduct = this.ProductList.find(product => product.id === productId);
+    if (selectedProduct) {
+      this.availableQuantity = selectedProduct.stock_quantity;
+    } else {
+      this.availableQuantity = 0;
+    }
+  }
 
   async GetInwardList() {
     const StockEntryType:any = "Inward"
@@ -59,18 +70,19 @@ export class InwardComponent implements OnInit {
   }
 
   async CreateInward(id: number) {
+    debugger
     this.InwardForm = this.formbuilder.group({
         quantity: new FormControl('', Validators.compose([Validators.required])),
       product_id: new FormControl('', Validators.compose([Validators.required]))
     });
     if (id) {
       this.helper.ShowSpinner();
-      let res = await this.service.GetById(id, "/v1/StockEntry/ById"); 
+      let res = await this.service.GetById(id, "v1/StockEntry/ById"); 
       this.InwardData = res;
       this.helper.HideSpinner();
     }
     else {
-      this.InwardData ;
+      this.InwardData = {} ;
     }
     await this.GetProductList();
     this.InwardDialog = true;
@@ -111,25 +123,20 @@ export class InwardComponent implements OnInit {
     }
   }
 
-  async Delete(id: number, name: string) {
-    // this.confirmationService.confirm({
-    //   target: event.target,
-    //   message: 'Are you sure, that you want to delete this Inward- ' + name + '?',
-    //   icon: 'pi pi-question-circle',
-    //   accept: async () => {
-    //     this.helper.ShowSpinner();
-    //     let res = await this.service.Delete(`v1/StockEntry/Delete/${id}`);
-    //     if (res.Type == "S") {
-    //       this.helper.SucessToastr(res.Message);
-    //       this.GetInwardList();
-    //     }
-    //     else {
-    //       this.helper.ErrorToastr(res.Message);
-    //     }
-    //     this.helper.HideSpinner();
-    //   }
-    // });
-  }
+  async Delete(id: string) {
+    debugger
+    this.helper.ShowSpinner();
+    let res = await this.service.Delete(`v1/StockEntry/Delete/${id}`);
+    if (res.Type == "S") {
+        this.helper.SucessToastr(res.Message);
+        this.GetInwardList();
+    }
+    else {
+        this.helper.ErrorToastr(res.Message);
+    }
+    this.helper.HideSpinner();
+}
+
 
   CloseDialouge() {
     this.InwardDialog = false;

@@ -1,11 +1,11 @@
 <p-card>
     <div class="d-flex flex-row align-items-center justify-content-between mb-3">
         <h1 class="mb-0">Product Category</h1>
-        <button pButton pripple icon="pi pi-plus-circle" label=" Add New User" (click)="CreateProductCategory(0)"></button>
+        <button pButton pripple icon="pi pi-plus-circle" label=" Add New User" (click)="CreateProductCategory(null)"></button>
     </div>
 
-    <p-table [responsive]="true" #dt [globalFilterFields]="['user_role.name','first_name','last_name','email','mobile']" [value]="ProductCategoryList" [paginator]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rows]="10"
-        [showCurrentPageReport]="true" [rowsPerPageOptions]="[10,25,50]" [scrollable]="true">
+    <p-table [responsive]="true" #dt [globalFilterFields]="['name']" [value]="ProductCategoryList" [paginator]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rows]="10" [showCurrentPageReport]="true" [rowsPerPageOptions]="[10,25,50]"
+        [scrollable]="true">
         <ng-template pTemplate="caption">
             <div class="d-flex flex-row flex-wrap justify-content-between align-items-center">
                 <h5 class="p-text-secondary">List of Product Category</h5>
@@ -30,7 +30,9 @@
                     <span class="p-column-title">name : </span>{{rowData.name}}
                 </td>
                 <td class="text-end" pFrozenColumn>
-                    <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-primary" (click)="CreateUser(rowData.id)"></button>
+                    <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-primary" (click)="CreateProductCategory(rowData.id)"></button>
+                    <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-danger ms-3" (click)="Delete(rowData.id)"></button>
+
                 </td>
             </tr>
         </ng-template>

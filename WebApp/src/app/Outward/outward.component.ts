@@ -25,6 +25,8 @@ export class OutwardComponent implements OnInit {
   OutwardDialog: boolean = false;
   visible: boolean = false;
   ProductList: any = [];
+  availableQuantity: number = 0;
+
 
   constructor(
     public helper: CommonHelper,
@@ -36,18 +38,29 @@ export class OutwardComponent implements OnInit {
     this.helper.ShowSpinner();
     await this.GetOutwardList();
     this.helper.HideSpinner();
+    await this.GetProductList();
   }
 
   OutwardValidationMessage = {
-    'quantity': [{ type: 'required', message: 'Name cannot be blank.' },],
-    'product_id': [{ type: 'required', message: 'Please select State/Territory/Province.' },],
+    'quantity': [{ type: 'required', message: 'Quantity cannot be blank.' },],
+    'product_id': [{ type: 'required', message: 'Please select Product' },],
   };
+
+
 
   async GetOutwardList() {
     const StockEntryType:any = "Outward"
     let res = await this.service.GetById(StockEntryType,"v1/StockEntry/List");
     if (res) {
       this.OutwardList = res;
+    }
+  }
+  onProductChange(productId: number) {
+    const selectedProduct = this.ProductList.find(product => product.id === productId);
+    if (selectedProduct) {
+      this.availableQuantity = selectedProduct.stock_quantity;
+    } else {
+      this.availableQuantity = 0;
     }
   }
 
@@ -65,13 +78,13 @@ export class OutwardComponent implements OnInit {
     });
     if (id) {
       this.helper.ShowSpinner();
-      let res = await this.service.GetById(id, "/v1/StockEntry/ById"); 
+      let res = await this.service.GetById(id, "v1/StockEntry/ById"); 
       this.OutwardData = res;
       this.helper.HideSpinner();
     }
     else {
-      this.OutwardData ;
-    }
+      this.OutwardData = {};
+        }
     await this.GetProductList();
     this.OutwardDialog = true;
   }
@@ -111,25 +124,19 @@ export class OutwardComponent implements OnInit {
     }
   }
 
-  async Delete(id: number, name: string) {
-    // this.confirmationService.confirm({
-    //   target: event.target,
-    //   message: 'Are you sure, that you want to delete this Outward- ' + name + '?',
-    //   icon: 'pi pi-question-circle',
-    //   accept: async () => {
-    //     this.helper.ShowSpinner();
-    //     let res = await this.service.Delete(`v1/StockEntry/Delete/${id}`);
-    //     if (res.Type == "S") {
-    //       this.helper.SucessToastr(res.Message);
-    //       this.GetOutwardList();
-    //     }
-    //     else {
-    //       this.helper.ErrorToastr(res.Message);
-    //     }
-    //     this.helper.HideSpinner();
-    //   }
-    // });
-  }
+  async Delete(id: string) {
+    debugger
+    this.helper.ShowSpinner();
+    let res = await this.service.Delete(`v1/StockEntry/Delete/${id}`);
+    if (res.Type == "S") {
+        this.helper.SucessToastr(res.Message);
+        this.GetOutwardList();
+    }
+    else {
+        this.helper.ErrorToastr(res.Message);
+    }
+    this.helper.HideSpinner();
+}
 
   CloseDialouge() {
     this.OutwardDialog = false;

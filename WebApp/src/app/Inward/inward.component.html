@@ -1,11 +1,11 @@
 <p-card>
     <div class="d-flex flex-row align-items-center justify-content-between mb-3">
         <h1 class="mb-0">Inward</h1>
-        <p-button (onClick)="CreateInward(0)" label="Add New Inward" />
+        <p-button (onClick)="CreateInward(null)" label="Add New Inward" />
     </div>
 
-    <p-table [responsive]="true" #dt [globalFilterFields]="['user_role.name','first_name','last_name','email','mobile']" [value]="InwardList" [paginator]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rows]="10" [showCurrentPageReport]="true"
-        [rowsPerPageOptions]="[10,25,50]" [scrollable]="true">
+    <p-table [responsive]="true" #dt [globalFilterFields]="['product.name','quantity']" [value]="InwardList" [paginator]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rows]="10" [showCurrentPageReport]="true" [rowsPerPageOptions]="[10,25,50]"
+        [scrollable]="true">
         <ng-template pTemplate="caption">
             <div class="d-flex flex-row flex-wrap justify-content-between align-items-center">
                 <h5 class="p-text-secondary">List of Inward</h5>
@@ -41,6 +41,7 @@
                 </td>
                 <td class="text-end" pFrozenColumn>
                     <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-primary" (click)="CreateInward(rowData.id)"></button>
+                    <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-danger ms-3" (click)="Delete(rowData.id)"></button>
                 </td>
             </tr>
         </ng-template>
@@ -51,14 +52,20 @@
         {{InwardData?.id ? 'Edit Inward - ': 'Add New Inward' }} {{InwardData?.name}}
     </p-header>
     <div class="row" [formGroup]="InwardForm">
-        <div class="col-sm-6 form-group mb-3">
+        <div class="col-sm-5 form-group mb-3">
             <label>Product <span style="color: red"> * </span></label>
-            <p-dropdown appendTo="body" formControlName="product_id" optionLabel="name" optionValue="id" [options]="ProductList" placeholder="Select State/Territory/Province" [filter]="true" [(ngModel)]="InwardData.product_id"></p-dropdown>
+            <p-dropdown appendTo="body" formControlName="product_id" optionLabel="name" optionValue="id" [options]="ProductList" placeholder="Select Product" [filter]="true" [(ngModel)]="InwardData.product_id" (onChange)="onProductChange($event.value)"></p-dropdown>
             <app-validation propertyName="product_id" [MessageArray]="InwardValidationMessage" [FormGroupName]="InwardForm"></app-validation>
         </div>
-        <div class="col-sm-6 form-group mb-3">
+
+        <div class="col-sm-3 form-group mb-3">
+            <label>Available Quantity</label>
+            <input type="text" class="form-control" [value]="availableQuantity" disabled />
+        </div>
+
+        <div class="col-sm-4 form-group mb-3">
             <label>Quantity<span style="color: red"> * </span></label>
-            <input type="text" class="form-control" formControlName="quantity" placeholder="Enter Name" [(ngModel)]="InwardData.quantity" />
+            <input type="text" class="form-control" formControlName="quantity" placeholder="Enter Quantity" [(ngModel)]="InwardData.quantity" />
             <app-validation propertyName="quantity" [MessageArray]="InwardValidationMessage" [FormGroupName]="InwardForm"></app-validation>
         </div>
     </div>

@@ -2,31 +2,57 @@ import { ProductCategoryModel } from '@Model/Inventory/ProductCategory.model';
 import { Injectable } from '@nestjs/common';
 import { product } from '@Root/Database/Table/Inventory/product';
 import { product_category } from '@Root/Database/Table/Inventory/product_category';
+import { CacheEnum } from '@Root/Helper/Enum/CacheEnum';
+import _ from 'lodash';
 import { Not } from 'typeorm';
+import { CacheService } from '../Cache.service';
 
 @Injectable()
 export class ProductCategoryService {
-  constructor() { }
+  constructor(
+    private _CacheService: CacheService
+
+  ) { }
 
   async GetAll() {
-    return await product_category.find();
+    const ResultData = await this._CacheService.Get(`${CacheEnum.ProductCategory}:*`);
+    if (ResultData.length > 0) {
+      return ResultData
+    }
+    else {
+      const ProductCategoryList = await product_category.find();
+      await this._CacheService.Store(`${CacheEnum.ProductCategory}`, ProductCategoryList);
+      return ProductCategoryList;
+    }
   }
+
 
   async GetById(productCategoryId: string) {
     const ProductCategoryData = await product_category.findOne({ where: { id: productCategoryId } });
     if (!ProductCategoryData) {
-      throw new Error('Product Category not found');
+      throw new Error('Product Category not found')
     }
-    return ProductCategoryData;
+    const ResultData = await this._CacheService.Get(`${CacheEnum.ProductCategory}:${productCategoryId}`);
+    if (ResultData.length > 0) {
+      return ResultData[0];
+    }
+    else {
+      const ProductCategoryData = await product_category.findOne({ where: { id: productCategoryId } });
+      await this._CacheService.Store(`${CacheEnum.ProductCategory}:${productCategoryId}`, [ProductCategoryData]);
+      return ProductCategoryData;
+    }
   }
+
+
+
 
   async Insert(productCategoryData: ProductCategoryModel, userId: string) {
     const NewProduct = new product();
     NewProduct.name = productCategoryData.name;
     NewProduct.created_by_id = userId;
     NewProduct.created_on = new Date();
-
     await product_category.insert(NewProduct);
+    await this._CacheService.Store(`${CacheEnum.ProductCategory}`, [NewProduct]);
     return NewProduct;
   }
 
@@ -39,6 +65,7 @@ export class ProductCategoryService {
     ExistingProduct.updated_by_id = userId;
     ExistingProduct.updated_on = new Date();
     await product_category.update(id, ExistingProduct);
+    await this._CacheService.Store(`${CacheEnum.ProductCategory}`, [{ ...ExistingProduct, id: id }]);
     return ExistingProduct;
   }
 
@@ -48,6 +75,7 @@ export class ProductCategoryService {
       throw new Error('Product Category not found');
     }
     await productCategoryData.remove();
+    await this._CacheService.Remove(`${CacheEnum.ProductCategory}:${id}`, productCategoryData);
     return true;
   }
 }

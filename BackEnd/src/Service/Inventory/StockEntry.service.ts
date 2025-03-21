@@ -4,10 +4,13 @@ import { product } from '@Root/Database/Table/Inventory/product';
 import { stock_entry } from '@Root/Database/Table/Inventory/stock_entry';
 import { StockEntryEnum } from '@Root/Helper/Enum/StockEntryEnum';
 import { Not } from 'typeorm';
+import { DashboardService } from './Dashboard.service';
 
 @Injectable()
 export class StockEntryService {
-  constructor() { }
+  constructor(
+    private readonly dashboardService: DashboardService
+  ) { }
 
   async GetAll(StockEntryType: StockEntryEnum) {
     const StockEntryData = await stock_entry.find({ where: { stock_entry: StockEntryType }, relations: ["product"] });
@@ -26,16 +29,16 @@ export class StockEntryService {
     }
 
     if (stockEntryData.type === StockEntryEnum.Inward) {
-      productExists.stock_quantity += stockEntryData.quantity;
+      productExists.stock_quantity = Number(productExists.stock_quantity) + Number(stockEntryData.quantity);
     }
-    else if (stockEntryData.type === StockEntryEnum.Outward) {
-      if (productExists.stock_quantity < stockEntryData.quantity) {
+
+    else {
+      if (Number(productExists.stock_quantity) < Number(stockEntryData.quantity)) {
         throw new Error('Insufficient stock available');
       }
-      productExists.stock_quantity -= stockEntryData.quantity;
-    } else {
-      throw new Error('Invalid stock entry type');
+      productExists.stock_quantity = Number(productExists.stock_quantity) - Number(stockEntryData.quantity);
     }
+
 
     await product.update(productExists.id, productExists);
 
@@ -64,6 +67,7 @@ export class StockEntryService {
     ExistingStockEntry.updated_on = new Date();
 
     await stock_entry.update(id, ExistingStockEntry);
+    await this.dashboardService.invalidateCache();
     return ExistingStockEntry;
   }
 

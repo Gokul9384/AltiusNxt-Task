@@ -57,17 +57,18 @@ export class ProductCategoryComponent implements OnInit {
   }
 
   async CreateProductCategory(id: number) {
+    debugger
     this.ProductCategoryForm = this.formbuilder.group({
         name: new FormControl('', Validators.compose([Validators.required])),
     });
     if (id) {
       this.helper.ShowSpinner();
-      let res = await this.service.GetById(id, "/v1/ProductCategory/ById"); 
+      let res = await this.service.GetById(id, "v1/ProductCategory/ById");
       this.ProductCategoryData = res;
       this.helper.HideSpinner();
     }
     else {
-      this.ProductCategoryData ;
+      this.ProductCategoryData = {};
     }
     await this.GetProductList();
     this.ProductCategoryDialog = true;
@@ -107,25 +108,19 @@ export class ProductCategoryComponent implements OnInit {
     }
   }
 
-  async Delete(id: number, name: string) {
-    // this.confirmationService.confirm({
-    //   target: event.target,
-    //   message: 'Are you sure, that you want to delete this ProductCategory- ' + name + '?',
-    //   icon: 'pi pi-question-circle',
-    //   accept: async () => {
-    //     this.helper.ShowSpinner();
-    //     let res = await this.service.Delete(`v1/ProductCategory/Delete/${id}`);
-    //     if (res.Type == "S") {
-    //       this.helper.SucessToastr(res.Message);
-    //       this.GetProductCategoryList();
-    //     }
-    //     else {
-    //       this.helper.ErrorToastr(res.Message);
-    //     }
-    //     this.helper.HideSpinner();
-    //   }
-    // });
-  }
+  async Delete(id: string) {
+    debugger
+    this.helper.ShowSpinner();
+    let res = await this.service.Delete(`v1/ProductCategory/Delete/${id}`);
+    if (res.Type == "S") {
+        this.helper.SucessToastr(res.Message);
+        this.GetProductCategoryList();
+    }
+    else {
+        this.helper.ErrorToastr(res.Message);
+    }
+    this.helper.HideSpinner();
+}
 
   CloseDialouge() {
     this.ProductCategoryDialog = false;

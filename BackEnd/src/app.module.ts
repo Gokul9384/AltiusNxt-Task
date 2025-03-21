@@ -31,6 +31,8 @@ import { ProductCategoryController } from './Controller/Inventory/ProductCategor
 import { StockEntryController } from './Controller/Inventory/StockEntry.controller';
 import { ProductService } from './Service/Inventory/Product.service';
 import { ProductCategoryService } from './Service/Inventory/ProductCategory.service';
+import { DashboardController } from './Controller/Inventory/Dashboard.controller';
+import { DashboardService } from './Service/Inventory/Dashboard.service';
 
 @Module({
   imports: [
@@ -83,7 +85,8 @@ import { ProductCategoryService } from './Service/Inventory/ProductCategory.serv
     UserRoleController,
     ProductController,
     ProductCategoryController,
-    StockEntryController
+    StockEntryController,
+    DashboardController,
   ],
   providers: [
     AuthService,
@@ -97,7 +100,8 @@ import { ProductCategoryService } from './Service/Inventory/ProductCategory.serv
     StockEntryService,
     ProductService,
     ProductCategoryService,
-       {
+    DashboardService,
+    {
       provide: APP_FILTER,
       useClass: ExceptionHelper,
     },

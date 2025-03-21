@@ -39,6 +39,20 @@ export class ProductListComponent implements OnInit {
         this.helper.redirectTo("/Product/" + id);      
     }
 
+    async Delete(id: string) {
+        debugger
+        this.helper.ShowSpinner();
+        let res = await this.service.Delete(`v1/Product/Delete/${id}`);
+        if (res.Type == "S") {
+            this.helper.SucessToastr(res.Message);
+            this.GetProductList();
+        }
+        else {
+            this.helper.ErrorToastr(res.Message);
+        }
+        this.helper.HideSpinner();
+}
+
 }
 
 const routes: Routes = [

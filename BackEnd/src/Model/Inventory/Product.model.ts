@@ -15,8 +15,7 @@ export class ProductModel extends BaseModel {
   @Type(() => String)
   product_category_id: string;
 
-  @IsNumber({}, { message: 'Stock quantity must be a number' })
-  @ApiProperty({ required: true })
+  @ApiProperty({ required: false })
   @Type(() => Number)
   stock_quantity: number;
 

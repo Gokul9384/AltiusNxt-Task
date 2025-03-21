@@ -34,7 +34,7 @@ export class ProductComponent implements OnInit {
     this.ProductForm = this.formbuilder.group({
       name: new FormControl('', Validators.compose([Validators.required])),
       product_category_id: new FormControl('', Validators.compose([Validators.required])),
-      stock_quantity: new FormControl('', Validators.compose([Validators.required])),
+      stock_quantity: new FormControl('', Validators.compose([Validators.nullValidator])),
       min_qty: new FormControl('', Validators.compose([Validators.required])),
     })
 

@@ -39,6 +39,8 @@ export class UserListComponent implements OnInit {
         this.helper.redirectTo("/User/" + id);      
     }
 
+
+
 }
 
 const routes: Routes = [

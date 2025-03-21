@@ -1,3 +1,5 @@
 export enum CacheEnum {
-  EmailConfig = "EmailConfig"
+  EmailConfig = "EmailConfig",
+  Product = "Product",
+  ProductCategory = "ProductCategory"
 }
