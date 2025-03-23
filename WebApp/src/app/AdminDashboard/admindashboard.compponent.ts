@@ -43,9 +43,7 @@ export class AdminDashboardComponent implements OnInit {
     await this.ProductCategorydropdownList();
     await this.CategoryWiseStock();
     await this.LowProductStock();   
-    console.log('Subscribing to stock updates...'); // Log subscription
     this.webSocketService.onStockUpdate((data: any) => {
-      console.log('Received stock update from server:', data); // Log received data
       this.DashboardList = data;
     });
   }

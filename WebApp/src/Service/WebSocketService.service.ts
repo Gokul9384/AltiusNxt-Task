@@ -10,10 +10,9 @@ export class WebSocketService {
 
   constructor() {
     this.socket = io('http://localhost:8000', {
-      transports: ['websocket'], // Force WebSocket transport
+      transports: ['websocket'],
     });
   
-    console.log('WebSocket connection established:', this.socket.connected);    
   
     this.socket.on('connect', () => {
       console.log('Connected to WebSocket server');
@@ -30,7 +29,6 @@ export class WebSocketService {
 
   onStockUpdate(callback: (data: any) => void) {
     this.socket.on('stockUpdate', (data) => {
-      console.log('Received stock update from server:', data); // Log received data
       callback(data);
     });
   } 
