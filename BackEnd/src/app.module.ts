@@ -33,6 +33,7 @@ import { ProductService } from './Service/Inventory/Product.service';
 import { ProductCategoryService } from './Service/Inventory/ProductCategory.service';
 import { DashboardController } from './Controller/Inventory/Dashboard.controller';
 import { DashboardService } from './Service/Inventory/Dashboard.service';
+import { DashboardGateway } from './Service/DashboardGateway.service';
 
 @Module({
   imports: [
@@ -101,6 +102,7 @@ import { DashboardService } from './Service/Inventory/Dashboard.service';
     ProductService,
     ProductCategoryService,
     DashboardService,
+    DashboardGateway,
     {
       provide: APP_FILTER,
       useClass: ExceptionHelper,

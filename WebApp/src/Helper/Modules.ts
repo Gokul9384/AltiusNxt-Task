@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
-import { NgPipesModule } from 'ngx-pipes';
 import { ValidationModule } from '../app/Shared/Validation/validation.component';
 import { GetSumValuePipe } from '../Pipe/GetSumValue.pipe';
 import { AbsstatusModule } from '../app/Shared/absstatus/absstatus.component';
@@ -26,7 +25,6 @@ import { InputNumberModule } from 'primeng/inputnumber';
     AbsstatusModule,
     // NumericDirective,
     // DropdownFooterDirective,
-    NgPipesModule,
     ValidationModule,
     // GetSumValuePipe,
     // LoadImage,

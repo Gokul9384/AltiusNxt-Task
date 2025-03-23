@@ -7,6 +7,7 @@ import { CommonService } from 'src/Service/Common.service';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { DropdownModule } from 'primeng/dropdown';
 import { TableModule } from 'primeng/table';
+import { WebSocketService } from 'src/Service/WebSocketService.service';
 
 
 
@@ -30,6 +31,7 @@ export class AdminDashboardComponent implements OnInit {
   constructor(
     public helper: CommonHelper,
     private service: CommonService,
+    private webSocketService: WebSocketService
 
   ) { }
 
@@ -40,9 +42,12 @@ export class AdminDashboardComponent implements OnInit {
 
     await this.ProductCategorydropdownList();
     await this.CategoryWiseStock();
-    await this.LowProductStock();
-
-   
+    await this.LowProductStock();   
+    console.log('Subscribing to stock updates...'); // Log subscription
+    this.webSocketService.onStockUpdate((data: any) => {
+      console.log('Received stock update from server:', data); // Log received data
+      this.DashboardList = data;
+    });
   }
 
   async CategoryWiseStock() {
@@ -51,6 +56,8 @@ export class AdminDashboardComponent implements OnInit {
       this.DashboardList = res;
     }}
 
+
+    
 
   async LowProductStock(){
     debugger

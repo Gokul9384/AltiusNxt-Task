@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, forwardRef, Input, NgModule, OnInit } from '@angular/core';
 import { ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR, ReactiveFormsModule } from '@angular/forms';
-import { NgPipesModule } from 'ngx-pipes';
 
 @Component({
   selector: 'absstatus',

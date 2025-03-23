@@ -4,11 +4,13 @@ import { product } from '@Root/Database/Table/Inventory/product';
 import { stock_entry } from '@Root/Database/Table/Inventory/stock_entry';
 import { StockEntryEnum } from '@Root/Helper/Enum/StockEntryEnum';
 import { DashboardService } from './Dashboard.service';
+import { DashboardGateway } from '../DashboardGateway.service';
 
 @Injectable()
 export class StockEntryService {
   constructor(
-    private _DashboardService: DashboardService
+    private _DashboardService: DashboardService,
+    private dashboardGateway: DashboardGateway
   ) { }
 
   async GetAll(StockEntryType: StockEntryEnum) {
@@ -49,8 +51,12 @@ export class StockEntryService {
     NewStockEntry.created_on = new Date();
 
     await stock_entry.insert(NewStockEntry);
-    this._DashboardService.updateStockCache();
-    return NewStockEntry;
+    this.dashboardGateway.sendStockUpdate(NewStockEntry);
+  // Emit the stock update to all connected clients
+  const updatedStock = await this._DashboardService.getCategoryWiseStock();
+  console.log('Updated stock data:', updatedStock); // Log the updated stock data
+  this.dashboardGateway.sendStockUpdate(updatedStock);
+  return NewStockEntry;
   }
 
 
